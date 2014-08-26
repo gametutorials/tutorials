@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderToTexture", "RenderToTexture.vcxproj", "{11A6A1A3-1FE4-44B9-9C17-9B7036806C09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11A6A1A3-1FE4-44B9-9C17-9B7036806C09}.Debug|Win32.ActiveCfg = Debug|Win32
+		{11A6A1A3-1FE4-44B9-9C17-9B7036806C09}.Debug|Win32.Build.0 = Debug|Win32
+		{11A6A1A3-1FE4-44B9-9C17-9B7036806C09}.Release|Win32.ActiveCfg = Release|Win32
+		{11A6A1A3-1FE4-44B9-9C17-9B7036806C09}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

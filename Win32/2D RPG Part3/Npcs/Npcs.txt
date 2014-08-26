@@ -1,0 +1,11 @@
+Brother > life: 1 strength: 1 speed: 0 Message: Hey Quinn.  I am not doing to good this morning, I think I keep getting sicker each day.
+Rhett > life: 32 strength: 5 speed: 1 Message: Hello Quinn, that is to bad about your brother.  I hope he gets better soon.
+Yarden > life: 40 strength: 10 speed: 2 Message: Hey there Quinn, how is your brother doing these days?
+Trent > life: 50 strength: 12 speed: 2 Message: If you're lookin to pass the bridge to the new world, you need to get permission from the Governor.
+Hugo > life: 60 strength: 15 speed: 3 Message: I am so glad that we don't have the monster problem that the new world has.  They are everywhere!
+Farrel > life: 70 strength: 18 speed: 3 Message: I am not sure that this is a good time to talk.
+Guard > life: 80 strength: 20 speed: 0 Message: There is no way you are getting past this bridge.  It's too dangerous in the new world!
+ShopKeeper > life: 90 strength: 23 speed: 0 Message: Step right up traveler.
+Trendor > life: 100 strength: 25 speed: 5 Message: Hopefully you can find that potion quick Quinn.  If there is anything I can do, come and let me know.
+Governor > life: 125 strength: 28 speed: 5 Message: You still don't seem strong enough to fight the monsters in the new world.  Keep training.
+Sage > life: 150 strength: 30 speed: 6 Message: I sure hope this potion helps.  Good luck to you Quinn!

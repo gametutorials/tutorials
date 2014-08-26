@@ -1,0 +1,34 @@
+#ifndef D3D_TEXTURE_H
+#define D3D_TEXTURE_H
+
+#include <d3dx9tex.h>
+
+// This is our D3D texture class.  It will handle all of the 
+// texture needs for our app.
+class CD3DTexture
+{
+	public:
+		
+		CD3DTexture(); // Constructor
+		
+		// Loads the texture specified by the file name
+		// Returns true on success, false otherwise 
+		bool load(const char *fileName);
+		
+		void select(); // Selects the texture as the current texture to use
+		
+		~CD3DTexture(); // Free up memory
+		
+	private:
+	
+		IDirect3DTexture9 *mTexture; // The DirectX 9 texture interface.  This allows us to manage
+									// a texture resource inside of a D3D app
+		
+		// We make the copy constructor and assignment operator private because
+		// we do NOT want anyone accidentally making a copy of this class
+		// It should always be passed by pointer or reference
+		CD3DTexture(const CD3DTexture &obj) {}
+		CD3DTexture& operator =(CD3DTexture &obj) { return *this; }	
+};
+
+#endif

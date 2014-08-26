@@ -1,0 +1,113 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+EDITORMENU MENU 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "&Open\tCtrl+O",               ID_FILE_OPENUP, HELP
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVEIT
+        MENUITEM "Save &As...\tCtrl+A",         ID_FILE_SAVEAS
+        MENUITEM "&Reset\tCtrl+R",              ID_FILE_RESET
+        MENUITEM "&Quit\tCtrl+Q",               ID_FILE_QUIT
+    END
+    POPUP "Tiles"
+    BEGIN
+        MENUITEM "&Tiles\tCtrl+T",              ID_TILES_TILES, CHECKED
+        MENUITEM "&Items\tCtrl+I",              ID_TILES_ITEMS
+        MENUITEM "&Monsters\tCtrl+M",           ID_TILES_MONSTERS
+        MENUITEM "&Citizens\tCtrl+C",           ID_TILES_CITIZENS
+        MENUITEM "&Exits\tCtrl+E",              ID_TILES_EXITS
+    END
+    POPUP "Help"
+    BEGIN
+        MENUITEM "About",                       ID_HELP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS 
+BEGIN
+    "O",            ID_FILE_OPENUP,         VIRTKEY, CONTROL, NOINVERT
+    "Q",            ID_FILE_QUIT,           VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_FILE_RESET,          VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_FILE_SAVEAS,         VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVEIT,         VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_TILES_CITIZENS,      VIRTKEY, CONTROL, NOINVERT
+    "E",            ID_TILES_EXITS,         VIRTKEY, CONTROL, NOINVERT
+    "I",            ID_TILES_ITEMS,         VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_TILES_TILES,           VIRTKEY, CONTROL, NOINVERT
+    "M",            ID_TILES_MONSTERS,      VIRTKEY, CONTROL, NOINVERT
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

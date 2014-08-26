@@ -1,0 +1,391 @@
+<html>
+	<head>
+		<title>This page is designed to be an aid for creating animation in 3D Studio Max</title>
+		<meta http-equiv="Content-Language" content="en-us">
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+		<meta name="ProgId" content="FrontPage.Editor.Document">
+	</head>
+	<body bgcolor="#000000" text="#ffffff">
+		<blockquote> <blockquote> <blockquote>
+					<p align="center"><img border="0" src="images/Title.jpg" width="615" height="69"></p>
+					<p>&nbsp;</p>
+				</blockquote></blockquote></blockquote>
+		<p>This page is designed to be an aid for creating animation in 3D Studio 
+			Max.&nbsp; Many of you might already know how to model and set key frames in 
+			Max, but I am going to show you how to make it work so it animates correctly in 
+			the 3DS Animation Tutorial created by <a href="http://www.GameTutorials.com">www.GameTutorials.com</a>.&nbsp; 
+			This type of animation is just the beginning before you move into bone 
+			animation.&nbsp; There are a lot of restrictions and loss of true motion when 
+			doing it this way.&nbsp; Basically, you are just creating objects and then 
+			translating, scaling or rotation them with key frames.&nbsp; That means you can 
+			not use bones to give the object of character life like motion.&nbsp; This is 
+			how it was done before skeletal animation was used in the older games.<br>
+		</p>
+		<p align="center"><img border="0" src="images/TheBasicsTitle.jpg" align="center" width="221" height="38"><br>
+		</p>
+		<p>Let me start by saying that the version of max that we will be using is <b>3D Studio 
+				Max 3.0</b>.&nbsp; The differences between 3 and 4 aren't big enough to max 
+			2 separate versions of this tutorial.&nbsp; If you are using 2.5 and below it 
+			might be a tad bit different, but if you already know 3DS Max it shouldn't be a 
+			problem.&nbsp; Below you can see 3D Studio Max open with the 4 default views (<b>Figure 
+				1.1</b>).&nbsp; We will be working with the bottom right view called the <b>perspective</b>
+			view.&nbsp; If you click on that view port, then click the Min/Max Toggle 
+			button <img border="0" src="images/MinMaxButton.jpg" width="25" height="25"> in 
+			the bottom right it will allow you to just see the perspective view, which will 
+			give you a larger window to work with. You can click the button again to return 
+			to the 4 view ports.<br>
+		</p>
+		<p>&nbsp;<img border="0" src="images/MaxDefault.jpg" width="640" height="480"><b><br>
+				Figure 1.1<br>
+			</b>
+		</p>
+		<p>First off, let's do a quick walk through on how to create objects in 3DS 
+			max.&nbsp; Let's start by creating a simple box.&nbsp; <img border="0" src="images/CreateDefaults.jpg" align="right" width="182" height="245">Click 
+			on the <b>Create </b>tab <img border="0" src="images/CreateTab.jpg" width="25" height="25">
+			on the right.&nbsp; You should now see for some of the object types listed a 
+			Box, Cone, Sphere, etc (<b>Figure 1.2</b>).&nbsp;&nbsp; If you don't, make sure 
+			you have the <b>Standard Primitives</b> selected from the drop down menu and 
+			the <b>Geometry </b>button <img border="0" src="images/GeometryButton.jpg" width="25" height="25">
+			is selected right above that.&nbsp; Click on the button that says <b>Box</b>.&nbsp; 
+			A section below should appear that allows you to set the new box's attributes 
+			like length, width and height, along with the amount of segments (detail) it 
+			will have.&nbsp; Do not set this data yet, but first put your cursor in the <b>perspective
+			</b>view port around the origin (0, 0, 0) and click, hold, then drag the mouse 
+			to the right and up a bit.&nbsp; This will create the length and width of the 
+			box.&nbsp; You will notice, once you let go it will then create the height 
+			depending on where you move the mouse.&nbsp; If you move it up it will increase 
+			the height, if you move it down, it will decrease the height.&nbsp; When you 
+			found a decent height click the mouse and it&nbsp;&nbsp;</p>
+		<p align="right"><b>Figure 1.2</b></p>
+		<p><img border="0" src="images/SampleBox.jpg" align="left" width="320" height="240">will 
+			save your box.&nbsp; The width and height doesn't matter right now, nor the 
+			position of the box because we will set the values in a second.&nbsp; The box 
+			should have a random color that 3DS Max set for you (but remember this isn't a 
+			material!).&nbsp; Refer to <b>Figure 1.3</b> for an example of what yours might 
+			look like.&nbsp; If you look over to the right you will notice that the <b>Length</b>,
+			<b>Width</b> and <b>Height</b> values reflect the box you just created.&nbsp; 
+			They are most likely very crude and precise numbers.&nbsp; Let's make this a 
+			cube by setting each of those values to <b>30</b>.&nbsp; Now we should have a 
+			cube with a size of <b>Length</b>, <b>Width</b> and <b>Height</b> of <b>30</b>.&nbsp; 
+			You might notice up above there is an option for the creation method to create 
+			a cube instead of a box, but I wanted you to get comfortable with inputting 
+			your own values.</p>
+		<p><b>Figure 1.3</b></p>
+		<p>&nbsp;</p>
+		<p>You can you use the <b>Arc Rotate</b> button <img border="0" src="images/RotateButton.jpg" width="25" height="25">
+			and the <b>Zoom</b> button <img border="0" src="images/ZoomButton.jpg" width="25" height="25">
+			to rotate and zoom around the world to get a better view of the object you just 
+			created.&nbsp; To zoom in, you can also use the mouse wheel on your mouse if 
+			you have one.&nbsp; If you notice there is a local (X, Y, Z) axis in red 
+			centered at the bottom of the cube.&nbsp; That is the object's <b>Pivot Point</b>.&nbsp; 
+			We will discuss later on how to change that.&nbsp; Basically, a pivot point is 
+			the origin (0, 0, 0) for the object in model space.&nbsp; We are looking at 
+			world space, but each object has their own model space.&nbsp; So when you 
+			translate that object to (0, 0, 0) it's pivot point will be at (0, 0, 0) in 
+			world space.&nbsp; Then however the object is position according to it's pivot 
+			point it will then be translated.&nbsp; For instance, right now the cube's 
+			pivot point is centered at the bottom of the cube.&nbsp; If we translated the 
+			cube to (0, 0, 0) it would be above the origin, but centered along the X and Y 
+			axis (Z is up in 3DS Max) and the pivot point would be at (0, 0, 0) in world 
+			space.&nbsp; Let's say we move the pivot point to the center of the cube.&nbsp; 
+			Now, if we translated the cube to (0, 0, 0) in world space the pivot point 
+			would still be at (0, 0, 0), but the cube would be totally centered around the 
+			origin.&nbsp; Basically, where ever the pivot point goes, the object goes and 
+			keeps the same position from it.</p>
+		<p>Speaking of translating, let's move the object and center it at the origin (of 
+			course on top of the grid because its pivot point is at the bottom of the 
+			cube).&nbsp; To do this, we want to make sure the cube is selected, then click 
+			on the Translate button <img border="0" src="images/TranslateButton.jpg" width="25" height="25">.</p>
+		<p><img border="0" src="images/TranslateBox.jpg" align="left" width="293" height="126">Once 
+			we selected this button we want to right click on it.&nbsp; This will bring up 
+			a dialog box <b>(Figure 1.4)</b> that will allow us to numerically translate 
+			the object to a specific (x, y, z).&nbsp; Type in <b>0</b> for the <b>X Y</b> and
+			<b>Z</b> <b>Absolute:World</b> values.&nbsp; You should see that your cube is 
+			now centered around the origin but on top of the grid.<br>
+			<br>
+			<b>
+				<br>
+				Figure 1.4</b></p>
+		<p align="left">If you don't want to type in where you want the box to go, you can 
+			select the Translate button and click and drag the box to where you want.&nbsp; 
+			You can restrict the movement along certain axis' by clicking on one of the 
+			Restrict buttons <img border="0" src="images/RestrictButtons.jpg" width="97" height="32">.&nbsp; 
+			On the right of those there is also a button menu to choose multiple 
+			axis's.&nbsp; These work the same for rotations too.&nbsp; Try playing around 
+			with some of the other shapes besides boxes and get comfortable with moving 
+			them around.&nbsp; Before we go on, let's assign a material to our 
+			object.&nbsp; I won't go into how to put a texture on the object here, but I 
+			will give you the <i>jist</i> of how to do it.&nbsp; If you hit '<b>m</b>' it 
+			will bring up the Material Editor (<b>Figure 1.5</b>).&nbsp;&nbsp;<br>
+			<br>
+			<img border="0" src="images/MaterialEditor.jpg" align="right" width="366" height="307">Select 
+			a color from the material editor.&nbsp; Then click again and drag the material 
+			onto the object.&nbsp; Now the object will have that color mapped on it.&nbsp; 
+			You should at least have a color material on all of your objects, otherwise 
+			they will appear gray in the 3DS Loader.&nbsp; If you want to apply a texture 
+			map, I will quickly explain how.&nbsp; Click on the gray button next to the 
+			diffuse color in the editor.&nbsp; A dialog box should come up with some 
+			options for a map, double click the bitmap option.&nbsp; It will then allow you 
+			to choose the file that will be the texture map.&nbsp; After you choose the 
+			file you should see the texture mapped around the color sphere you had selected 
+			in the material editor (usually the first one).&nbsp; Now, click and drag that 
+			texture onto the object.&nbsp; Then, you will need to click the <b>Show Map In View 
+				Port</b> button <img border="0" src="images/ShowTexture.jpg" width="25" height="25">.&nbsp; 
+			This will display the texture map in your perspective view port.&nbsp; You can 
+			then from there apply a <b>UVW Map</b> in the <b>Modifier</b> tab next to the <b>Create</b>
+			tab.&nbsp; There you can mess with positioning it.&nbsp;</p>
+		<p align="right"><b>Figure 1.5</b></p>
+		<p align="center">&nbsp;</p>
+		<p align="center">&nbsp;</p>
+		<p align="center">&nbsp;</p>
+		<p align="center"><img border="0" src="images/AnimationTitle.jpg" width="230" height="38"></p>
+		<p><br>
+			Now that you have the basics (or already did) of creating and moving around 
+			shapes in 3DS Max, let's get on to what you want to know, <b>animation</b>!&nbsp; 
+			Let me explain again on how this type of animation works.&nbsp; We aren't doing 
+			bone animation, just key frame object animation.&nbsp; If you wanted to 
+			animation an object going from one place to another in a straight line or along 
+			a curve, you don't want to move the object <b>every </b>frame for say 60 frames 
+			do you?&nbsp; With key frames, you can just give the object a start and end 
+			location and have the rest done for you.&nbsp; If you want it to move along a 
+			curve, just position the object at variables points along that curve and it 
+			will interpolate the rest for you.&nbsp; The more key frames though, the better 
+			the accuracy the animation.&nbsp; So, let's try to do a simple animation.&nbsp; 
+			We will attempt to move our cube that we made from one position to another, say 
+			(0, 0, 0) to (10, 10, 0), assuming Z is up.&nbsp; Since our object is already 
+			at (0, 0, 0) we just need to set a key frame for (10, 10, 0).&nbsp; To do this, 
+			click on the <b>Animate</b> button <img border="0" src="images/AnimateButton.jpg" width="48" height="44">.&nbsp; 
+			This will turn <font color="#ff0000">red</font>, along with the view port that 
+			is selected.&nbsp; Ours happens to be the perspective view port.&nbsp; Now we 
+			are ready to set key frames.&nbsp; The first frame (<b>0</b>) just happens to 
+			set a key frame by default.&nbsp; Notice the <b>animation bar</b> <img border="0" src="images/AnimationBar.jpg" width="157" height="16">.&nbsp; 
+			It says that we are on frame <b>0</b> with <b>100</b> frames total in the 
+			animation.&nbsp; This is the default that 3DS Max gives us.&nbsp; You can click 
+			and drag the animation bar left and right to scroll through the different 
+			frames.&nbsp; You will notice that the frames currently are all the same 
+			because we haven't done any animation yet.&nbsp; Let's leave the animation 
+			frames to 100 for now, and I will show you later how to change them.&nbsp; 
+			Scroll the animation bar to the very last frame <b>100</b>.&nbsp; Now, with the <b>Animate</b>
+			button still selected move the box to (10, 10, 0) by right clicking on the <b>Translate
+			</b>button and manually typing in (10, 10, 0).&nbsp; You can also move it there 
+			yourself if you want to by clicking and dragging the box there.&nbsp; Now, 
+			that's all you need to do to set the key frame.&nbsp; With the Animate button 
+			set, it remembers what the position, scale and rotation the object has for 
+			every frame you go to and change.&nbsp; If you want to view your animation 
+			click the <b>Play </b>button <img border="0" src="images/PlayButton.jpg" width="25" height="25">
+			or use the <b>Animation</b> bar to scroll through every frame by dragging it 
+			left and right.&nbsp; To stop the animation, click the <b>Play </b>button again 
+			(It will turn to a stop symbol).&nbsp; That's it!&nbsp; You just did your first 
+			key frame animation.&nbsp; Now try going to frame 50 and moving the box to 
+			another play.&nbsp; Make sure you have the <b>Animate </b>button down or else 
+			it won't compute your changes for the animation.&nbsp; You will notice now that 
+			if you move the box in a different place that doesn't move in a straight line 
+			there is a curve to it's movement.&nbsp; Try doing some key frames using the 
+			Scale and Rotation buttons.&nbsp; If you want to move the object somewhere and 
+			then have it interpolate back, just set the first and last frame with the same 
+			translation values.</p>
+		<p>&nbsp;</p>
+		<p><img border="0" src="images/MarchManBody.jpg" align="left" width="320" height="240"></p>
+		<p>Now that we have the basics of doing key frames, let make a simple animation 
+			that could load into our program.&nbsp; We will make a simple character that 
+			has a basic walk cycle.&nbsp; It might look like Frankenstein but it will prove 
+			as an easy example anyone can do.&nbsp; We start with the body.&nbsp; First, 
+			create a <b>Cylinder</b> with a <b>Radius</b> of <b>6</b> and <b>Height</b> of <b>20</b>.&nbsp; 
+			You can find the <b>Cylinder</b> button 2 below the <b>Box</b> button in the <b>Create</b>
+			tab (See <b>Basics </b>above).&nbsp; Leave the rest of the data for the 
+			cylinder default.&nbsp; Next, translate the object to (0, 0, 20).&nbsp; Open 
+			the <b>Material Editor </b>(hit '<b>m</b>') and give the body a light blue 
+			color.&nbsp; Your scene should look something like&nbsp; <b>Figure 2.1</b></p>
+		<p><br>
+			<img border="0" src="images/MarchManHead.jpg" align="right" width="320" height="240"><b>Figure 
+				2.1<br>
+				<br>
+			</b>
+		</p>
+		<p>Next, we want to create the head. Create a cone with <b>Radius 1: 6</b>, <b>Radius 
+				2: 4</b> and a <b>Height</b> of <b>8</b>.&nbsp; The <b>Cone</b> button can 
+			be found on the right of the <b>Box </b>button.&nbsp; Translate the head to (0, 
+			0, 42).&nbsp; It should now be positioned a bit above the body.&nbsp; Once 
+			again, open the Material Editor and select the skin color material.&nbsp; Drag 
+			it onto the head to apply it.&nbsp; You can find this color if you scroll all 
+			the way to the right and down about half way.&nbsp; Your scene should look 
+			something like <b>Figure 2.2.</b></p>
+		<p align="right"><b>Figure 2.2</b></p>
+		<p><img border="0" src="images/MarchManArms.jpg" align="left" width="320" height="240"></p>
+		<p>Now we need to add the arms to our character.&nbsp; Create another cylinder with 
+			a <b>Radius</b> of <b>2.5 </b>and a <b>Height</b> of <b>20</b>.&nbsp; <b>Translate</b>
+			the arm to <b>(9, 0, 20)</b>.&nbsp; There should be an arm on the character 
+			now.&nbsp; We need to create another, but we don't have to create a new 
+			cylinder.&nbsp; Select the arm you just made.&nbsp; Click on the <b>Translate</b>
+			button <img border="0" src="images/TranslateButton.jpg" width="25" height="25">.&nbsp; 
+			Hold down shift and click and drag the arm to another location and left 
+			go.&nbsp; You will notice that it brings up a dialog box that asks if you want 
+			to create a copy, instance or reference.&nbsp; Leave it at the default "<b>copy</b>" 
+			and hit the <b>OK</b> button.&nbsp; Now we have another arm.&nbsp; Translate 
+			that arm to <b>(-9, 0, 20)</b>.&nbsp; Apply the same skin material to the arms 
+			are you did to the head.&nbsp; Your character should look something like <b>Figure 
+				2.3.</b></p>
+		<p><b>Figure 2.3</b></p>
+		<p>&nbsp;</p>
+		<p><img border="0" src="images/MarchManLegs.jpg" align="right" width="320" height="240"></p>
+		<p>Last but not least, we need to model the legs.&nbsp; Create another cylinder 
+			with a <b>Radius</b> of <b>3.5 </b>and a <b>Height</b> of <b>20</b>.&nbsp; <b>Translate</b>
+			the leg to <b>(3.5, 0,20)</b>.&nbsp; There should be a leg on the character 
+			now.&nbsp; Copy the other leg the same way you did the other arm and translate 
+			it to <b>(-3.5, 0, 0)</b>.&nbsp; Assign a darker blue material to the 
+			legs.&nbsp; Now you should be done modeling the character.&nbsp; It should look 
+			something like <b>Figure 2.4.&nbsp; </b>Before we start animation the model, we 
+			want to set the arm's and leg's<b>&nbsp; </b>pivot points.&nbsp; Since we need 
+			to rotate the legs and arms to simulate a walk, if we rotated them around the 
+			current pivot point it wouldn't look right.&nbsp; We want them to rotate from 
+			the top of the cylinder.&nbsp; Let's discuss how to do that next.</p>
+		<p align="right"><br>
+			<br>
+			<b>Figure 2.4</b></p>
+		<p align="right"><br>
+			<img border="0" src="images/HierarchyTab.jpg" align="left" width="184" height="318"></p>
+		<p><img border="0" src="images/PivotPoints.jpg" align="right" width="235" height="318">Select 
+			the a leg.&nbsp; Click the <b>Hierarchy</b> <b>Tab</b> on the right of the <b>Modify</b>
+			<b>Tab</b>.&nbsp; It should bring up a bunch of options for <b>Pivot</b>, <b>IK</b>
+			and <b>Link Info (Figure 2.5)</b>.&nbsp; Click the Affect Pivot Only 
+			button.&nbsp; It should turn a different color.&nbsp; This means that what ever 
+			we do, be it translations or rotations, it will just effect the pivot point of 
+			the object, not the object itself.&nbsp; We want to move the pivot point near 
+			the top of the leg so it rotates correctly.&nbsp; Translate the leg's pivot 
+			point Z value to 18.&nbsp; Do the same thing for the other leg.&nbsp; Now we'll 
+			do the arms.&nbsp; Translate both arm's pivot point Z values to 38.&nbsp; Now 
+			the arm's and the leg's pivot points should be near the top of the 
+			cylinder.&nbsp; This will allow us to rotate around a more appropriate 
+			axis.&nbsp; If you <b>click</b> and <b>drag</b> your mouse over all of the 
+			objects to select them and then turn on the <b>Affect Pivot Only</b> button, 
+			the pivot points should be in the same position as shown in <b>Figure 2.6</b>.&nbsp; 
+			You can unclick the <b>Affect Pivot Only </b>button now.</p>
+		<p><b>Figure 2.5</b></p>
+		<p align="right"><b>Figure 2.6<br>
+			</b>
+		</p>
+		<p>
+		</p>
+		<p>We are ready to now go on to moving the arms and legs around.&nbsp; The 
+			character's walk cycle will be more like a march in place animation.&nbsp; It 
+			will be a seamless animation though.&nbsp; To start animation, let's move the <b>Animation 
+				Bar</b> to <b>Frame 0</b> if it isn't already.&nbsp; Click the <b>Animate</b>
+			button <img border="0" src="images/AnimateButton.jpg" width="48" height="44"> to 
+			allow key frames to be set.&nbsp;First we will do the legs.&nbsp; Now that the <b>Animate</b>
+			button is set, move the <b>Frame</b> <b>Bar</b> <img border="0" src="images/AnimationBar.jpg" width="157" height="16">
+			to frame <b>25</b>.&nbsp; Click on the <b>Rotate </b>button <img border="0" src="images/RotationButton.jpg" width="25" height="25">
+			next to the <b>Translate </b>button <img border="0" src="images/TranslateButton.jpg" width="25" height="25">.&nbsp; 
+			Select the <b>right</b> leg of the character (his true right leg, our left 
+			side).&nbsp; Now, right click on the <b>Rotate </b>button.&nbsp; It should 
+			bring up a dialog box similar to the <b>Translate Dialog Box</b>.&nbsp; Look at <b>Figure 
+				2.7</b> for the <b>Rotate Dialog Box</b>.
+		</p>
+		<p align="center"><img border="0" src="images/RotateBox.jpg" width="293" height="125"><b>Figure 
+				2.7</b></p>
+		<p align="left">There should be all <b>0</b>'s in the fields as shown above.&nbsp; 
+			Now, we want to rotate the current leg along the X Axis.&nbsp; To do this, we 
+			can just type in <b>-45</b> in the <b>Absolute:World X</b> field.&nbsp; Make 
+			sure that was set by clicking in another field or pressing enter.&nbsp; Now 
+			close the dialog box.&nbsp; You will notice that the characters right leg has 
+			lifted off the ground as if to step forward (<b>Figure 2.8</b>).&nbsp; If the 
+			rotation did not happen correctly, make sure the pivot point was set 
+			right.&nbsp; It should be located near the top of the leg.</p>
+		<p align="center"><img border="0" src="images/rleganim.jpg" width="320" height="240">
+			<b>Figure 2.8</b></p>
+		<p align="left">If you scroll the <b>Frame</b> <b>Bar</b> back and forth between 
+			frames <b>0</b> to <b>25</b> you should see the leg rise and fall.&nbsp; If you 
+			do not see this make sure you have the <b>Animate</b> button selected and your 
+			view port should have a <font color="#ff0000"><b>red</b></font> outline to 
+			it.&nbsp; Now move the <b>Frame</b> <b>Bar</b> to frame <b>50</b>.&nbsp; Right 
+			click again on the <b>Rotate</b> button and set the <b>X</b> rotation back to <b>0</b>
+			again.&nbsp; If you move the <b>Frame Bar </b>back and forth now, it should 
+			animate the leg moving up and then back down again.<br>
+			<br>
+			To animate the other leg, we need to do something a tad bit different.&nbsp; 
+			Since this character will be doing a march, we want the right leg to go up and 
+			come down, then the left leg to go up and come down.&nbsp; That means that we 
+			will want to set key frames for the left leg at frame <b>75</b> and at frame <b>100</b>.&nbsp; 
+			The problem with this is, if you just set a key frame at <b>75</b> for the left 
+			leg, it will interpolate from <b>0</b> to <b>75</b>.&nbsp; We need to set a key 
+			frame a <b>0</b> and then <b>50</b> first.&nbsp; To do this, click on the left 
+			leg and move the <b>Frame Bar</b> to frame <b>0</b>.&nbsp; Right click on the <b>Frame 
+				Bar</b>.&nbsp; A dialog box will pop ups that asks if you want to create a 
+			key frame on the current frame.&nbsp; Click <b>OK</b> and you will notice a 
+			gray circle appear underneath the <b>Frame Bar</b>.&nbsp; That means that a key 
+			frame is set there.&nbsp; Now go to frame <b>50</b> and do the same 
+			thing.&nbsp; You should see a gray circle under frame <b>0</b> and frame <b>50</b>.&nbsp; 
+			If you go back to the right foot it will also have one of these gray circles 
+			for frame <b>25</b> and <b>50</b>.&nbsp; You might be thinking that you should 
+			just have to do it at frame <b>50</b>, but when you export the model the way it 
+			handles the animation it won't work.&nbsp; It would actually be a good idea to 
+			set a key frame at frame <b>0</b> like this for every object that you 
+			manipulate just to make sure.<br>
+			<br>
+			So, once you set the key frame for the <b>left</b> <b>foot</b> at frame <b>50</b>, 
+			go to frame <b>75</b>.&nbsp; Do the same rotation that you did for the right 
+			foot (<b>-45</b> degrees along the <b>X</b> axis).&nbsp; Next, move the <b>Frame 
+				Bar</b> to the very last frame, <b>100</b>.&nbsp; Rotate the left leg back 
+			to it's original position by setting the <b>X</b> axis rotation from <b>-45</b> 
+			to <b>0</b> again.&nbsp; Press the <b>Play</b> button&nbsp; <img border="0" src="images/PlayButton.jpg" width="25" height="25">
+			to view the animation or move the <b>Frame Bar</b> back and forth.&nbsp; The 
+			character should appear to be doing a march, with the right foot forward, down, 
+			then the left foot forward, then down.&nbsp; Remember to make sure you have the 
+			Animate button down while you are setting the key frames or else it will not 
+			work.</p>
+		<p align="center">Simple animation huh?&nbsp; Well let's make it a bit more life 
+			like and move his arms.&nbsp; Select the character's <b>right</b> arm.&nbsp; Go 
+			to frame <b>25</b>.&nbsp; Rotate the arm by <b>45</b> degrees along the <b>X</b>
+			axis.&nbsp; The arm should now be rotating backwards if you want the 
+			animation.&nbsp; Make sure it looks similar to <b>Figure 2.9</b>.<br>
+			<br>
+			<img border="0" src="images/rarmanim.jpg" width="320" height="240"> <b>Figure 2.9</b></p>
+		<p align="left"><br>
+			Now go to frame <b>75</b>.&nbsp; Rotate the arm by <b>-45</b> degrees on the <b>X</b>
+			axis.&nbsp; Lastly, go to frame <b>100</b> and set the rotation to 0.&nbsp; The 
+			arm should now be resting at the character's side.&nbsp; If you want the other 
+			arm to move, select the <b>left</b> arm and do the same thing but do the 
+			opposite rotations.&nbsp; First rotate by <b>-45</b> degrees along the <b>X </b>
+			at frame <b>25</b>, and then at frame <b>75</b> rotate it by <b>45</b> degrees 
+			along the<b> X</b>.&nbsp; Finally, at frame <b>100</b> set it back to <b>0</b> for 
+			the <b>X</b>.&nbsp; If you press play now you should have a character doing a 
+			simple march animation with his arms going back and forth.&nbsp; If you go to 
+			frame <b>75</b> your character should look like <b>Figure 2.10</b>.</p>
+		<p align="left">&nbsp;</p>
+		<p align="center"><img border="0" src="images/AnimationFinal.jpg" width="320" height="240">
+			<b>Figure 2.10</b></p>
+		<p align="left"><br>
+			That's it!&nbsp; That is how you do a simple character animation using key 
+			frames.&nbsp; See if you can get the head to bounce while he marches.&nbsp; I 
+			dare ya.&nbsp;
+			<br>
+			<br>
+			Once you have the animation the way you want it, turn <b>off</b> the <b>Animate</b>
+			button and move the <b>Frame Bar</b> to frame <b>0</b>.&nbsp; Go to the <b>File </b>
+			menu and choose <b>Export..., </b>Then obviously save it as a <b>.3ds </b>file.&nbsp; 
+			That should be good enough for you to load it into your program and use our key 
+			frame animation tutorial to play the animation back.&nbsp;
+		</p>
+		<P align="left">If you want to change the amount of frames your animation is, 
+			instead of the default 100, Right Click on the Key Mode Toggle button<img border="0" src="images/KeyModeButton.jpg" width="25" height="25">.&nbsp; 
+			A dialog box will pop up with options to change the frames per second speed, as 
+			well as many other options.&nbsp; They are pretty self explanatory.&nbsp; A 
+			good frame size is 60.<br>
+			<br>
+			In closing, I would like to say that there may a few things you have to mess 
+			around with to get the animation working correctly.&nbsp; There has not been 
+			extensive testing on the animation loader so there may be some times it might 
+			do something funny.&nbsp; It is not intended to be a robust animation loader 
+			but to teach the basics of doing simple key frame animation from 3D Studio 
+			Max.&nbsp;
+		</P>
+		<P align="left">&nbsp;</P>
+		<P align="left">Ben Humphrey<BR>
+			<a href="mailto:HumphreyDigiBen@GameTutorials.com ">DigiBen@GameTutorials.com
+				<br>
+			</a><a href="http://www.GameTutorials.com">www.GameTutorials.com</a></P>
+		<p align="left">&nbsp;</p>
+		<p align="left"><font face="arial,sans-serif" size="1" color="#ffffff">© 3D Studio 
+				Max.&nbsp; All rights are reserved.</font></p>
+	</body>
+</html>

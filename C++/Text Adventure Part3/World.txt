@@ -1,0 +1,106 @@
+<Name>   Troy
+<health> 275 
+<weapon> dagger
+<damage> 21
+<Start>  Middle
+
+<Middle>
+You step into a house where you are nearly
+blinded by the light shinning through the [window].
+You have been searching for your friend who was captured.
+The trail has led you to this mansion.
+There is a door in every direction.*
+<north> Top
+<east>  Right
+<south> Bottom
+<west>  Left
+<look>  1 window
+<enemy> None
+
+<Middle|window>
+The light pierces your eyes, causing you to wince in pain each time you look directly at the window.*
+
+<Left>
+There is a [fountain] in the middle of this room.
+The cool, crisp air swirls about and encircles you.
+There is only one door to the east where you came.*
+<north> None
+<east>  Middle
+<south> None
+<west>  None
+<look>  1 fountain
+<enemy> None
+
+<Left|fountain>
+A beautiful fountain stands erected in the middle of the room.  It kinda makes you thirsty.*
+
+<Bottom>
+You step back outside of the mansion and grab some fresh air.
+It is quite refreshing, compared to the damp smell from within.
+You here rustling from the second story of the house.  It could be your friend.
+Your only option is to go back inside and get them out of here!*
+<north> Middle
+<east>  None
+<south> None
+<west>  None
+<look>  0
+<enemy> None
+
+<Right>
+As you pass through the door you feel a chill run
+down your spine.  It appears that there something or 
+someone or [something] sitting in the corner, covered by darkness.
+There is no where to go but back to the west.*
+<north> None
+<east>  None
+<south> None
+<west>  Middle
+<look>  1 something
+<enemy> goblin
+
+<Right|something>
+You squint your eyes towards the corner where the mysterious entity resides...  Nothing moves.*
+
+<Right|goblin>
+<Health> 125
+<Damage> 12
+<Attack> The goblin claws your face.*
+
+<Top>
+As you get closer to the second story of the mansion, the sounds of someone
+struggling can be heard more distinctly.  There is no turning back now.
+One door is to the south and one is to the north up a [stairwell].*
+<north> End
+<east>  None
+<south> Middle
+<west>  None
+<look>  1 stairwell
+<enemy> None
+
+<Top|stairwell>
+This is the only place where your friend could be.  You'd best go up it, carefully.*
+
+<End>
+You find your [friend] tied to a [chair].  Their hands, feet and mouth are bound,
+but it's as if their eyes are screaming at you.  Short bursts of muffled yells
+are heard from under the cloth that holds their mouth, as if to say, "Run!".  
+What could they be trying to say?  As you walk closer to them they seem to get 
+louder and more desperate. That's when you see it.  It had been lurching in the
+corner, feathered by darkness.   To be continued...*
+<north> None
+<east>  None
+<south> None
+<west>  None
+<look>  2 friend chair
+<enemy> troll
+
+<End|friend>
+Your friend seems to be pleading with you in the chair to run.  You have never seen them that scared before.*
+
+<End|chair>
+The wooden chair holds your friend tightly, with ropes seemingly strangling the body that is tied to it.*
+
+<End|troll>
+<Health> 202
+<Damage> 19
+<Attack> The troll bashes your side with his club.*

@@ -1,0 +1,10 @@
+monster > image: $ life: 32 strength: 5 speed: 1
+monster2 > image: ! life: 40 strength: 10 speed: 2
+monster3 > image: ~ life: 50 strength: 12 speed: 2
+monster4 > image: M life: 60 strength: 15 speed: 3
+monster5 > image: % life: 70 strength: 18 speed: 3
+monster6 > image: * life: 80 strength: 20 speed: 4
+monster7 > image: ( life: 90 strength: 23 speed: 5
+monster8 > image: + life: 100 strength: 25 speed: 5
+monster9 > image: | life: 125 strength: 28 speed: 5
+monster10 > image: ^ life: 150 strength: 30 speed: 6

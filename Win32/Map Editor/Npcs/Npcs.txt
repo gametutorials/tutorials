@@ -1,0 +1,11 @@
+npc > life: 32 strength: 5 speed: 1 Message: I am very angry so don't talk to me.
+npc2 > life: 40 strength: 10 speed: 2 Message: Hello, my name is Tarin.
+npc3 > life: 50 strength: 12 speed: 2 Message: How are you?  I am just fine.
+npc4 > life: 60 strength: 15 speed: 3 Message: This place is kinda quit huh?
+npc5 > life: 70 strength: 18 speed: 3 Message: I am not sure that this is a good time to talk.
+npc6 > life: 80 strength: 20 speed: 4 Message: Have you seen my dog?  I always lose that puppy.
+npc7 > life: 90 strength: 23 speed: 5 Message: Isn't it a bright and sunny day out today?
+npc8 > life: 100 strength: 25 speed: 5 Message: I'm not really the talkative type...
+npc9 > life: 125 strength: 28 speed: 5 Message: You don't seem like your from around here are ya?
+npc10 > life: 150 strength: 30 speed: 6 Message: Ever dance with the devil in the pale moon light?
+npc11 > life: 200 strength: 35 speed: 15 Message: I'm sorry, I don't have time to make friends with the likes of you.

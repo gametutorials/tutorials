@@ -1,0 +1,10 @@
+armor >	lifeInc: 0 strengthInc: 0 protectionInc: 10 type: chest
+axe > lifeInc: 0 strengthInc: 8 protectionInc: 0 type: weapon
+boots > lifeInc: 0 strengthInc: 1 protectionInc: 3 type: feet
+food > 	lifeInc: 150 strengthInc: 0 protectionInc: 0 type: item
+food2 > lifeInc: 50 strengthInc: 0 protectionInc: 0 type: item
+shirt > lifeInc: 0 strengthInc: 0 protectionInc: 5 type: chest
+ivorySword > lifeInc: 0 strengthInc: 15 protectionInc: 2 type: weapon
+steelSword > lifeInc: 0 strengthInc: 11 protectionInc: 3 type: weapon
+pearlSword > lifeInc: 0 strengthInc: 18 protectionInc: 2 type: weapon
+helmet > lifeInc: 0 strengthInc: 3 protectionInc: 6 type: head

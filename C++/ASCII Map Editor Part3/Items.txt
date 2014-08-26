@@ -1,0 +1,13 @@
+armor >	lifeInc: 0 strengthInc: 0 protectionInc: 10
+axe > lifeInc: 0 strengthInc: 8 protectionInc: 0
+boots > lifeInc: 0 strengthInc: 1 protectionInc: 3
+food > 	lifeInc: 150 strengthInc: 0 protectionInc: 0
+food2 > lifeInc: -25 strengthInc: 0 protectionInc: 0
+food3 > lifeInc: 50 strengthInc: 0 protectionInc: 0
+mace > lifeInc: 0 strengthInc: 10 protectionInc: 2
+numchucks > lifeInc: 0 strengthInc: 6 protectionInc: 4
+shield > lifeInc: 0 strengthInc: 0 protectionInc: 10
+shirt > lifeInc: 0 strengthInc: 0 protectionInc: 5
+sword > lifeInc: 0 strengthInc: 15 protectionInc: 2
+sword2 > lifeInc: 0 strengthInc: 11 protectionInc: 3
+sword3 > lifeInc: 0 strengthInc: 18 protectionInc: 1

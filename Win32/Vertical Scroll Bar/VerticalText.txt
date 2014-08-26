@@ -1,0 +1,18 @@
+This is
+some text
+to display
+to the
+window to
+show how
+vertical scroll
+bars work.
+
+With the
+tutorial default
+settings, you
+should have
+to scroll
+a bit
+to read
+all of
+this text. 

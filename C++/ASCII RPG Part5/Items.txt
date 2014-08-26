@@ -1,0 +1,16 @@
+mushroom > lifeInc: -25 strengthInc: 0 protectionInc: 0 type: item
+muffin > lifeInc: 50 strengthInc: 0 protectionInc: 0 type: item
+meal > lifeInc: 150 strengthInc: 0 protectionInc: 0 type: item
+slippers > lifeInc: 0 strengthInc: 1 protectionInc: 3 type: feet
+boots > lifeInc: 0 strengthInc: 2 protectionInc: 5 type: feet
+steelBoots > lifeInc: 0 strengthInc: 2 protectionInc: 10 type: feet
+shirt > lifeInc: 0 strengthInc: 0 protectionInc: 5 type: chest
+chainmail > lifeInc: 0 strengthInc: 0 protectionInc: 10 type: chest
+armor >	lifeInc: 0 strengthInc: 0 protectionInc: 15 type: chest
+axe > lifeInc: 0 strengthInc: 8 protectionInc: 0 type: weapon
+redSword > lifeInc: 0 strengthInc: 11 protectionInc: 2 type: weapon
+blueSword > lifeInc: 0 strengthInc: 15 protectionInc: 3 type: weapon
+WhiteSword > lifeInc: 0 strengthInc: 18 protectionInc: 1 type: weapon
+cap > lifeInc: 0 strengthInc: 0 protectionInc: 5 type: head
+helmet > lifeInc: 0 strengthInc: 2 protectionInc: 10 type: head
+

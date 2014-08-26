@@ -1,0 +1,11 @@
+monster > life: 32 strength: 5 speed: 1
+monster2 > life: 40 strength: 10 speed: 2
+monster3 > life: 50 strength: 12 speed: 2
+monster4 > life: 60 strength: 15 speed: 3
+monster5 > life: 70 strength: 18 speed: 3
+monster6 > life: 80 strength: 20 speed: 4
+monster7 > life: 90 strength: 23 speed: 5
+monster8 > life: 100 strength: 25 speed: 5
+monster9 > life: 125 strength: 28 speed: 5
+monster10 > life: 150 strength: 30 speed: 6
+monster11 > life: 200 strength: 35 speed: 15

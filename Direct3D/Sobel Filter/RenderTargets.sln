@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderTargets", "RenderTargets.vcxproj", "{3CD2339C-6BDF-418B-B9BA-F0749506BCEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CD2339C-6BDF-418B-B9BA-F0749506BCEA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3CD2339C-6BDF-418B-B9BA-F0749506BCEA}.Debug|Win32.Build.0 = Debug|Win32
+		{3CD2339C-6BDF-418B-B9BA-F0749506BCEA}.Release|Win32.ActiveCfg = Release|Win32
+		{3CD2339C-6BDF-418B-B9BA-F0749506BCEA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

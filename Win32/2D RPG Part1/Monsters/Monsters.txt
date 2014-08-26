@@ -1,0 +1,11 @@
+rogue > life: 32 strength: 5 speed: 1
+orge > life: 40 strength: 10 speed: 2
+troll > life: 50 strength: 12 speed: 2
+oger > life: 60 strength: 15 speed: 3
+shimmer > life: 70 strength: 18 speed: 3
+dwarf > life: 80 strength: 20 speed: 4
+imp > life: 90 strength: 23 speed: 5
+babyDragon > life: 100 strength: 25 speed: 5
+dragon > life: 125 strength: 28 speed: 5
+death > life: 150 strength: 30 speed: 6
+bob > life: 200 strength: 35 speed: 15

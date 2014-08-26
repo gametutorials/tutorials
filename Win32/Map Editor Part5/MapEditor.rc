@@ -1,0 +1,161 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+EDITORMENU MENUEX 
+BEGIN
+    POPUP "File",                           65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "&Open\tCtrl+O",               ID_FILE_OPENUP,
+        MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVEIT,MFT_STRING,
+        MFS_ENABLED
+        MENUITEM "Save &As...\tCtrl+A",         ID_FILE_SAVEAS,MFT_STRING,
+        MFS_ENABLED
+        MENUITEM "&Reset\tCtrl+R",              ID_FILE_RESET,MFT_STRING,
+        MFS_ENABLED
+        MENUITEM "&Quit\tCtrl+Q",               ID_FILE_QUIT,MFT_STRING,
+        MFS_ENABLED
+    END
+    POPUP "Tiles",                          65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "&Tiles\tCtrl+T",              ID_TILES_TILES,MFT_STRING,
+        MFS_CHECKED
+        MENUITEM "&Items\tCtrl+I",              ID_TILES_ITEMS,MFT_STRING,
+        MFS_ENABLED
+        MENUITEM "&Monsters\tCtrl+M",           ID_TILES_MONSTERS,MFT_STRING,
+        MFS_ENABLED
+        MENUITEM "&Citizens\tCtrl+C",           ID_TILES_CITIZENS,MFT_STRING,
+        MFS_ENABLED
+        MENUITEM "&Exits\tCtrl+E",              ID_TILES_EXITS,MFT_STRING,
+        MFS_ENABLED
+    END
+    POPUP "Help",                           65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "About",                       ID_HELP_ABOUT,MFT_STRING,
+        MFS_ENABLED
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS 
+BEGIN
+    "O",            ID_FILE_OPENUP,         VIRTKEY, CONTROL, NOINVERT
+    "Q",            ID_FILE_QUIT,           VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_FILE_RESET,          VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_FILE_SAVEAS,         VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVEIT,         VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_TILES_CITIZENS,      VIRTKEY, CONTROL, NOINVERT
+    "E",            ID_TILES_EXITS,         VIRTKEY, CONTROL, NOINVERT
+    "I",            ID_TILES_ITEMS,         VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_TILES_TILES,         VIRTKEY, CONTROL, NOINVERT
+    "M",            ID_TILES_MONSTERS,      VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOGEX 0, 0, 186, 81
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,118,24,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,118,44,50,14
+    EDITTEXT        IDC_EDIT1,21,34,79,12,ES_AUTOHSCROLL
+    LTEXT           "Enter An  Action Key",IDC_STATIC,21,17,78,9
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

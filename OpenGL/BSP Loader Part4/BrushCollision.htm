@@ -1,0 +1,417 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="BrushCollision_files/filelist.xml">
+<link rel=Edit-Time-Data href="BrushCollision_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Brush Collision</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ben Humphrey</o:Author>
+  <o:LastAuthor>Ben Humphrey</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>2</o:TotalTime>
+  <o:Created>2004-09-30T09:18:00Z</o:Created>
+  <o:LastSaved>2004-09-30T09:20:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>186</o:Words>
+  <o:Characters>1066</o:Characters>
+  <o:Company>GameTutorials</o:Company>
+  <o:Lines>8</o:Lines>
+  <o:Paragraphs>2</o:Paragraphs>
+  <o:CharactersWithSpaces>1250</o:CharactersWithSpaces>
+  <o:Version>11.5606</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+none'><b style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt'>Brush
+Collision<br>
+</span></b>Frank <span class=SpellE>Puig</span> <span class=SpellE>Placeres</span>
+<span class=GramE>( </span><a href="mailto:fpuig2003@yahoo.com">fpuig2003@yahoo.com</a>
+)<b style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'>In 2D, we have a brush
+and a ray. Two float variables will be set to an small <span class=GramE>value<span
+style='mso-spacerun:yes'>  </span><i style='mso-bidi-font-style:normal'><u>S</u></i></span><i
+style='mso-bidi-font-style:normal'><u>=-1</u></i> , and to the end point <i
+style='mso-bidi-font-style:normal'><u>E=1</u></i>.<o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:200.25pt;
+ height:101.25pt'>
+ <v:imagedata src="BrushCollision_files/image001.gif" o:title="BrushOut1"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+src="BrushCollision_files/image001.gif" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'>Take each side and
+intersect it with the ray. Assuming that a brush plane is negative to the interior
+volume, then we know when Start is positive and when is negative (in the
+pictures when Start is positive then the side is colored red and when end is
+positive black). <o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:293.25pt;height:148.5pt'>
+ <v:imagedata src="BrushCollision_files/image002.png" o:title="BrushOut2"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=391 height=198
+src="BrushCollision_files/image003.jpg" v:shapes="_x0000_i1026"><![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'>Made this for all sides:<o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span
+style='mso-spacerun:yes'>   </span>If the side is red and the intersection
+fraction is greater than S then move S to the intersection.<o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span
+style='mso-spacerun:yes'>   </span>If the side is black and the intersection
+fraction is smaller than E then move E to the intersection.<o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'>Let’s see what’s happen
+with a line that collide and with one that is <span class=GramE>don’t</span>.<o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><o:p>&nbsp;</o:p></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:19.5pt'>
+  <td width=144 valign=top style='width:1.5in;padding:0in 5.4pt 0in 5.4pt;
+  height:19.5pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><u><o:p><span style='text-decoration:none'>&nbsp;</span></o:p></u></i></b></p>
+  </td>
+  <td width=466 valign=top style='width:349.5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.5pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><u>Ray not collide with the
+  brush<o:p></o:p></u></b></p>
+  </td>
+  <td width=374 valign=top style='width:280.5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.5pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><u>Ray collide with the brush<o:p></o:p></u></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=144 valign=top style='width:1.5in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'>Side 0<o:p></o:p></i></b></p>
+  </td>
+  <td width=466 valign=top style='width:349.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><!--[if gte vml 1]><v:shape id="_x0000_i1027" type="#_x0000_t75"
+   style='width:200.25pt;height:101.25pt'>
+   <v:imagedata src="BrushCollision_files/image004.gif" o:title="BrushOut3"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+  src="BrushCollision_files/image004.gif" v:shapes="_x0000_i1027"><![endif]><o:p></o:p></p>
+  </td>
+  <td width=374 valign=top style='width:280.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><!--[if gte vml 1]><v:shape id="_x0000_i1028" type="#_x0000_t75"
+   style='width:200.25pt;height:101.25pt'>
+   <v:imagedata src="BrushCollision_files/image005.gif" o:title="BrushIn3"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+  src="BrushCollision_files/image005.gif" v:shapes="_x0000_i1028"><![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=144 valign=top style='width:1.5in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'>Side 1<o:p></o:p></i></b></p>
+  </td>
+  <td width=466 valign=top style='width:349.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><!--[if gte vml 1]><v:shape id="_x0000_i1029" type="#_x0000_t75"
+   style='width:200.25pt;height:101.25pt'>
+   <v:imagedata src="BrushCollision_files/image006.gif" o:title="BrushOut4"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+  src="BrushCollision_files/image006.gif" v:shapes="_x0000_i1029"><![endif]><o:p></o:p></p>
+  </td>
+  <td width=374 valign=top style='width:280.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><!--[if gte vml 1]><v:shape id="_x0000_i1030" type="#_x0000_t75"
+   style='width:200.25pt;height:101.25pt'>
+   <v:imagedata src="BrushCollision_files/image007.gif" o:title="BrushIn4"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+  src="BrushCollision_files/image007.gif" v:shapes="_x0000_i1030"><![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;height:99.0pt'>
+  <td width=144 valign=top style='width:1.5in;padding:0in 5.4pt 0in 5.4pt;
+  height:99.0pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'>Side 2<o:p></o:p></i></b></p>
+  </td>
+  <td width=466 valign=top style='width:349.5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:99.0pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><!--[if gte vml 1]><v:shape id="_x0000_i1031" type="#_x0000_t75"
+   style='width:200.25pt;height:101.25pt'>
+   <v:imagedata src="BrushCollision_files/image008.gif" o:title="BrushOut5"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+  src="BrushCollision_files/image008.gif" v:shapes="_x0000_i1031"><![endif]><o:p></o:p></p>
+  </td>
+  <td width=374 valign=top style='width:280.5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:99.0pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><!--[if gte vml 1]><v:shape id="_x0000_i1032" type="#_x0000_t75"
+   style='width:200.25pt;height:101.25pt'>
+   <v:imagedata src="BrushCollision_files/image009.gif" o:title="BrushIn5"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+  src="BrushCollision_files/image009.gif" v:shapes="_x0000_i1032"><![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;height:105.75pt'>
+  <td width=144 valign=top style='width:1.5in;padding:0in 5.4pt 0in 5.4pt;
+  height:105.75pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'>Side 3<o:p></o:p></i></b></p>
+  </td>
+  <td width=466 valign=top style='width:349.5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:105.75pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><!--[if gte vml 1]><v:shape id="_x0000_i1033" type="#_x0000_t75"
+   style='width:200.25pt;height:101.25pt'>
+   <v:imagedata src="BrushCollision_files/image010.gif" o:title="BrushOut6"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+  src="BrushCollision_files/image010.gif" v:shapes="_x0000_i1033"><![endif]><o:p></o:p></p>
+  </td>
+  <td width=374 valign=top style='width:280.5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:105.75pt'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><!--[if gte vml 1]><v:shape id="_x0000_i1034" type="#_x0000_t75"
+   style='width:200.25pt;height:101.25pt'>
+   <v:imagedata src="BrushCollision_files/image011.gif" o:title="BrushIn6"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+  src="BrushCollision_files/image011.gif" v:shapes="_x0000_i1034"><![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;mso-yfti-lastrow:yes;height:1.5in'>
+  <td width=144 valign=top style='width:1.5in;padding:0in 5.4pt 0in 5.4pt;
+  height:1.5in'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'><o:p>&nbsp;</o:p></i></b></p>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+  normal'>Final Result<o:p></o:p></i></b></p>
+  </td>
+  <td width=466 valign=top style='width:349.5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:1.5in'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><!--[if gte vml 1]><v:shape id="_x0000_i1035" type="#_x0000_t75"
+   style='width:200.25pt;height:101.25pt'>
+   <v:imagedata src="BrushCollision_files/image012.gif" o:title="BrushOut7"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+  src="BrushCollision_files/image012.gif" v:shapes="_x0000_i1035"><![endif]><o:p></o:p></p>
+  </td>
+  <td width=374 valign=top style='width:280.5pt;padding:0in 5.4pt 0in 5.4pt;
+  height:1.5in'>
+  <p class=MsoNormal align=center style='text-align:center;mso-layout-grid-align:
+  none'><!--[if gte vml 1]><v:shape id="_x0000_i1036" type="#_x0000_t75"
+   style='width:200.25pt;height:101.25pt'>
+   <v:imagedata src="BrushCollision_files/image013.gif" o:title="BrushIn7"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=135
+  src="BrushCollision_files/image013.gif" v:shapes="_x0000_i1036"><![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'>Can any one tell me the
+difference? Of course the E &lt; S when no collision took place. And S &lt; E
+when a Collision took place.<o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'>An advice: take a pencil,
+draw a brush and check the algorithm for several lines. If doesn’t work then go
+to quake and there HAS to be a place where you MUST not collide! <span
+style='font-family:Wingdings;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-char-type:symbol;mso-symbol-font-family:
+Wingdings'><span style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>J</span></span><o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

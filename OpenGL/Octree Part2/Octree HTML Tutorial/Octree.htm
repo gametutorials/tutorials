@@ -1,0 +1,207 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Language" content="en-us">
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+		<meta name="ProgId" content="FrontPage.Editor.Document">
+	</head>
+	<body text="#ffffff" bgcolor="#000000">
+		<p align="center"><font size="7" color="#ffff00"><img border="0" src="images/title.jpg" width="636" height="66"></font></p>
+		<p align="center">&nbsp;</p>
+		<p align="left"><br>
+			<b><font size="5" color="#ffff00"><img border="0" src="images/OctreeDefinitionTitle.jpg" width="320" height="32"></font></b></p>
+		<p align="left">An <b>octree</b> is a way of subdividing 3D space, otherwise known 
+			as <b>space partitioning</b>.&nbsp; It allows you to only draw the part of your 
+			world/level/scene that is in your frustum (camera's view).&nbsp; It can also be 
+			used for collision detection.&nbsp; Let me give you an example of why space 
+			partition is necessary.&nbsp; Assume you created a world for your game and it 
+			has over 100, 000 polygons to draw.&nbsp; If you did a loop and passed in every 
+			one of those polygons, on top of your characters polygons per frame your frame 
+			rate would come to a crawl.&nbsp; If you have a nice Geforce card it might not 
+			be as horrible, but you just restricted anyone from viewing your game that 
+			doesn't have a $300+ graphics card.&nbsp; Sometimes, even though you have a 
+			really nice graphics card, the part that slows it down a considerable amount is 
+			the loop that you use to pass in that data.&nbsp; Wouldn't it be great if there 
+			was a way to only render the polygons that the camera was looking at?&nbsp; 
+			This is the beauty of an octree.&nbsp; It allows you to quickly find the 
+			polygons that you are in your view and only draw them.</p>
+		<p align="left"><br>
+			<br>
+			<b><font size="5" color="#ffff00"><img border="0" src="images/HowOctreeWorksTitle.jpg" width="318" height="31"></font></b></p>
+		<p align="left">An octree works in <b>cubes</b>.&nbsp; Initially, the octree starts 
+			with a root node that has an axis aligned cube surrounding the entire world, 
+			level or scene.&nbsp; So, imagine an invisible cube around your whole world (<font color="#ffff00"><b>Figure 
+					1.1</b></font>).&nbsp;
+		</p>
+		<p align="center"><img border="0" src="images/RootNode.jpg" width="320" height="200"><font color="#ffff00"><b>Figure 
+					1.1</b></font></p>
+		<p align="left"><br>
+			So this root node now stores all the vertices in the world.&nbsp; Currently, 
+			this wouldn't do us much good because it will draw the whole thing.&nbsp; We 
+			want to subdivide this node into 8 parts (hence the word <b>oct</b>ree).&nbsp;&nbsp;&nbsp; 
+			Once we subdivide there should be 8 cubes inside of the original root node's 
+			cube.&nbsp; That means 4 cubes on top and 4 on the bottom.&nbsp; Take a look at <font color="#ffff00">
+				<b>Figure 1.2</b></font>.&nbsp; Keep in mind the yellow lines outlining 
+			each node would not be there.&nbsp; The lines were added in to get a visual 
+			idea of what is going on.</p>
+		<p align="center"><img border="0" src="images/SubdividedNode.jpg" width="320" height="200"><font color="#ffff00"><b>Figure 
+					1.2</b></font></p>
+		<p align="left">We have just divided the world into 8 parts with just 1 
+			subdivision.&nbsp; Can you imagine how effective this would be if we had 2, 3 
+			or 4 subdivisions?&nbsp; Well, now what?&nbsp; We subdivided the world, but 
+			what do we do with this?&nbsp; Where does the speed come from that I 
+			mentioned?&nbsp; Let's say that the camera is in the middle of the world 
+			looking towards the back right corner (<font color="#ffff00"><b>Figure 1.3</b></font>).&nbsp; 
+			If you look at the lines you will notice that we are only looking at 4 of the 8 
+			nodes in the octree.&nbsp; These nodes include the 2 back top and bottom 
+			nodes.&nbsp; This means we would only need to draw the vertices stored in those 
+			nodes.&nbsp;
+			<br>
+			&nbsp;</p>
+		<p align="center"><img border="0" src="images/PartialVisibility.jpg" width="320" height="200"><font color="#ffff00"><b>Figure 
+					1.3</b></font></p>
+		<p align="left"><br>
+			How do we do check which nodes are in our view?&nbsp; This is pretty easy if 
+			you have frustum culling.&nbsp; You can get the dimensions of your frustum and 
+			then check each cube if it intersects or is inside of your viewing 
+			frustum.&nbsp; There is a frustum culling tutorial at <a href="http://www.GameTutorials.com">
+				www.GameTutorials.com</a> for more reference.&nbsp; If a cube intersects 
+			the frustum, we then draw the vertices that are assigned to that node.&nbsp; 
+			Basically, in the example above we just cut the amount we need to draw down by 
+			50 %.&nbsp; Remember, this was just <b>1</b> subdivision of our world.&nbsp; 
+			The more subdivisions the more accuracy we will achieve (to a point).&nbsp; Of 
+			course we don't want too many nodes because it could slow us down a bit with 
+			all that recursion.&nbsp; Is this starting to make sense?&nbsp; Let's subdivide 
+			yet another level.&nbsp; Take a look at <font color="#ffff00"><b>Figure 1.4</b></font>.</p>
+		<p align="center"><img border="0" src="images/SubdividedNode2.jpg" width="320" height="200"><font color="#ffff00"><b>Figure 
+					1.4</b></font></p>
+		<p align="left">You'll notice something different about <b><font color="#ffff00">Figure 1.4</font>
+			</b>from the last subdivision.&nbsp; This level of subdivision didn't create 8 
+			cubes inside of each of the original 8 cubes.&nbsp; The top and bottom parts of 
+			the original 8 nodes aren't subdivided.&nbsp; This is where we get into the 
+			nitty gritties of the octree creation process.&nbsp; You always try to 
+			subdivide a node into 8 more nodes, but if there are no triangles stored in 
+			that area, we disregard that node and don't allocate any memory for it.&nbsp; 
+			The further we subdivide, the more the nodes shape the original world.&nbsp; If 
+			we went down another level of subdivision the cubes would form a closer 
+			resemblance to the scene.&nbsp; To further demonstrate this, let's take a look 
+			at <font color="#ffff00"><b>Figure 1.5</b></font>.&nbsp; There are 2 spheres in 
+			the scene, but on completely opposite sides.&nbsp; Notice that in the first 
+			subdivision (Left) it splits the world into only 2 nodes, not 8.&nbsp; This is 
+			because the spheres only reside in 2 of the nodes.&nbsp; If we subdivide 2 more 
+			times (Right) it more closely forms over the spheres.&nbsp; This shows that 
+			nodes are only created where they need to be.&nbsp; A node will <b>not</b> be 
+			created if there is no triangles occupying it's space.<br>
+			&nbsp;</p>
+		<p align="center"><b> <font color="#ffff00"><img border="0" src="images/SpheresSub1.jpg" width="304" height="304">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<img border="0" src="images/SpheresSub3.jpg" width="304" height="304">Figure 
+					1.5</font></b></p>
+		<p align="left"><br>
+			<b><font size="5" color="#ffff00">
+					<br>
+					<img border="0" src="images/StopSubdividingTitle.jpg" width="319" height="27"></font></b></p>
+		<p align="left">Now that we understand how the subdivision works, we need to know 
+			how to stop it so it doesn't recurse forever.&nbsp; There are a few ways which 
+			we can do this.&nbsp; 1) We could stop subdividing the current node if it has a 
+			triangle count that is less than a max triangle count that we define.&nbsp; Say 
+			for instance, we chose 100 for the max.&nbsp; That means that before we 
+			subdivide the node, it will check to see if the total amount of triangles it 
+			has contained in it's area is less than or equal to the max triangle count that 
+			we decided.&nbsp; If it is less than or equal to the max, then we stop 
+			subdividing and assign all those triangles to that node.&nbsp; Note that we 
+			never assign any triangles to a node unless it's the end node.&nbsp; If we 
+			subdivide a node we do not store the triangles in that node, but in it's 
+			children node, or their children's nodes, or even their children, etc...&nbsp; 
+			This will make more sense when we go over how we draw the octree.&nbsp; 2) 
+			Another way to check if we want to stop subdividing is if we subdivide past a 
+			certain level of subdivision.&nbsp; We could create a max subdivision level 
+			like 10, and if we recurse above that number then we stop and assign the 
+			vertices in the cube's area to that node.&nbsp; When I saw "above that number" 
+			I mean 11 levels of subdivision.&nbsp; 3) The last check we can perform is if 
+			the nodes exceed a max node variable.&nbsp; Let's say we set this constant 
+			variable to 500.&nbsp; Every time we create a node we increment the current 
+			nodes created variable, then before we create another node we check if our 
+			current node count is less than or equal to the max node count.&nbsp; If we get 
+			to 501 nodes in our octree then we should not subdivide that node, but assign 
+			it's current vertices to it.&nbsp; I personally use the 1st and 3rd method, but 
+			it's a good idea to start with the 1st and 2cnd method so you can test the 
+			different levels of subdivision visually and manually.
+		</p>
+		<p align="left"><br>
+			<b><font size="5" color="#ffff00"><img border="0" src="images/DrawTheOctreeTitle.jpg" width="324" height="27"></font></b></p>
+		<p align="left">Once the octree is created we can then draw the nodes which are in 
+			our view.&nbsp; The cubes don't have to be all the way inside our view, just a 
+			little bit.&nbsp; That is why we want to make our triangle count in each node 
+			somewhat small so if we have a little corner of a node in our frustum it won't 
+			draw thousands of triangles.&nbsp; To draw the octree we start at the root 
+			node.&nbsp; We have a center point stored for each node and a width.&nbsp; This 
+			is perfect to pass into a function like so:</p>
+		<p align="left"><b><font color="#00ff00">// This function takes the center point of the 
+					cube (x, y, z) and it's size (width / 2)</font><font color="#ffff00"><br>
+					bool CubeInFrustum( float x, float y, float z, float size );</font></b></p>
+		<p align="left">This will return a <b><font color="#0000ff">true</font></b> or <b><font color="#0000ff">
+					false</font></b>, depending on if the cube is in the frustum (Once 
+			again refer to the frustum tutorial at <a href="http://www.GameTutorials.com">www.GameTutorials.com</a>
+			for frustum source code).&nbsp; If the cube is in the frustum them we check all 
+			of it's nodes to see if they are in the frustum, otherwise we ignore that whole 
+			branch in the tree.&nbsp; Once we get to a node that is in the frustum but does 
+			not have any nodes under it, we want to draw the vertices stored in that end 
+			node.&nbsp; Remember, only the end nodes have vertices stored in them.&nbsp; 
+			Take a look at <b><font color="#ffff00">Figure 1.6</font></b> to see an example 
+			run through of the octree.&nbsp; The nodes that are shaded are the ones that 
+			were in the frustum.&nbsp; The white cubes are the ones that are not in the 
+			frustum.&nbsp; This just shows the hierarchy of 2 levels of subdivision.</p>
+		<p align="center"><br>
+			<b><font color="#ffff00"><img border="0" src="images/OctreeNodeHeirarchy.jpg" width="320" height="200">Figure 
+					1.6</font></b></p>
+		<p align="center">&nbsp;</p>
+		<p align="left"><b><font size="5" color="#ffff00"><img border="0" src="images/CollisionTitle.jpg" width="324" height="24"></font></b></p>
+		<p align="left">An octree isn't just for rendering, but can be used for collision 
+			detection as well.&nbsp; Since collision detection varies from game to game, 
+			you will want to pick your own algorithm for checking if your character or 
+			object collided with the world.&nbsp; Here are a few examples on how you could 
+			check for this:&nbsp; 1) You will want to create a function that allows you to 
+			pass in a point in 3D space to your octree and return the vertices that are 
+			found around that point.&nbsp; The point that you would pass in could be the 
+			center point of your character or object.&nbsp; This alone might work some 
+			times, but what if the point is right near the edge of one of the nodes?&nbsp; 
+			Your character or object could be colliding with vertices that are in another 
+			node.&nbsp; To solve this problem you could do a couple things.&nbsp; You could 
+			pass in either a radius or bounding box of the character/object and then check 
+			if that radius or bounding box (easier with a cube) collides with another of 
+			the surrounding nodes.&nbsp; This would all depend on the shape of your 
+			character/object that you are testing.&nbsp; The following are some function 
+			prototypes for these ideas:</p>
+		<p align="left"><b><font color="#00ff00">// This function takes the center point of the 
+					character/object (x, y, z) and returns the vertices near it<br>
+				</font><font color="#ffff00">CVector3 *GetVerticesFromPoint( float x, float y, 
+					float z );</font></b></p>
+		<p align="left"><b><font color="#00ff00">// This function takes the center point of the 
+					character/object (x, y, z) and radius, then returns the vertices in the nodes 
+					that collide with it<br>
+				</font><font color="#ffff00">CVector3 *GetVerticesFromPointAndRadius( float x, 
+					float y, float z, float radius );</font></b></p>
+		<p align="left"><b><font color="#00ff00">// This function takes the center point of the 
+					character/object (x, y, z) and cube size, then returns the vertices in the 
+					nodes that collide with it<br>
+				</font><font color="#ffff00">CVector3 *GetVerticesFromPointAndCube( float x, float 
+					y, float z,&nbsp; float size );</font></b></p>
+		<p align="left"><br>
+			I am sure you can think of more optimal ways to speed these checks up, but this 
+			should get you started on the basics.&nbsp; Once you get the vertices that are 
+			in that area of your character/object you can do your more intense 
+			calculations.&nbsp; Once again, when it comes to collision it's totally how 
+			your game works.</p>
+		<p align="left"><br>
+			<b><font size="5" color="#ffff00"><img border="0" src="images/ConclusionTitle.jpg" width="162" height="30"></font></b></p>
+		<p align="left">This tutorial should give you enough information to get started 
+			creating your own octree.&nbsp; There is also a code tutorial that is 
+			associated with this document.&nbsp; I hope this helps someone struggling with 
+			these advanced concepts.&nbsp; Good luck!</p>
+		<p align="left"><br>
+			Ben Humphrey <a href="mailto:ProgrammerDigiBen@GameTutorials.com">
+				<br>
+				DigiBen@GameTutorials.com<br>
+			</a><A href="http://www.GameTutorials.com">www.GameTutorials.com</A></p>
+	</body>
+</html>

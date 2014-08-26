@@ -1,0 +1,41 @@
+//***************************************************************************/
+//
+//		- "Talk to me like a 3 year old!" Programming Lessons -			 
+//                                                                       
+//		$Author:		TheTutor -- thetutor@gametutorials.com	
+//											
+//		$Program:		Collision	
+//
+//		$Description:	Goes over how to do vector based collision
+//
+//***************************************************************************/
+
+Files:  	win_main.cpp (The Source File containing the main window code)
+	winobj.cpp (The Source File containing the window object implementation)
+	ball.cpp (The Source File containing the ball class implementation)
+	collide.cpp (The Source File containing the collision implementation)
+	vector_class.cpp (The Source File containing the vector class implementation)
+	vector_class.h (The Header File containing the vector class definition)
+	collide.h (The Header File containing the collision function definitions)
+	ball.h (The Header File containing path the ball class definition)
+	winobj.h (The Header File containing the window object definition)
+	Collision.vcxproj  (The VC++ Project File holding the project info)
+	Collision.sln  (The Solution File holding the solution info)
+	Diagram.bmp (A Bitmap File that is a visual aid to help explain vector based collision)
+
+Instructions:	If you have Microsoft Visual Studio .NET 2005 (version 8.0) just click on the
+		<Program Name>.vcxproj file.  This will open up visual c++.  You will most
+		likely see the code for <Program Name>.cpp.  If you don't, press CRTL+ALT+L
+		This will open the "Solution Explorer".  There you should find two folders named
+		"Source Files" and "Header Files".  Double click on the "source" folder and you
+		should see your source file(s) with a .cpp extension after it.  Double click on the
+		file and it
+ will open up in your main window.  Hit Control-F5 to run the program.
+		You will probably see a prompt to compile/build the project.  Click OK and
+		the Win32 program should pop up. :)
+
+EULA:  	Your use of this tutorial constitutes your agreement to GameTutorials' Terms of Use found
+	at:  http://www.gametutorials.com/TermsOfUse.htm
+
+www.GameTutorials.com
+©2000-2006 GameTutorials

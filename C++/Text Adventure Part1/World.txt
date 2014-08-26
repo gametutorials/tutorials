@@ -1,0 +1,63 @@
+<Start> Middle
+
+<Middle>
+You step into a house where you are nearly
+blinded by the light shinning through the window.
+You have been searching for your friend who was captured.
+The trail has led you to this mansion.
+There is a door in every direction.*
+<north> Top
+<east>  Right
+<south> Bottom
+<west>  Left
+
+<Left>
+There is a fountain in the middle of this room.
+The cool, crisp air swirls about and encircles you.
+There is only one door to the east where you came.*
+<north> None
+<east>  Middle
+<south> None
+<west>  None
+
+
+<Bottom>
+You step back outside of the mansion and grab some fresh air.
+It is quite refreshing, comapred to the damp smell from within.
+You here rustling from the second story of the house.  It could be your friend.
+Your only option is to go back inside and get them out of here!*
+<north> Middle
+<east>  None
+<south> None
+<west>  None
+
+<Right>
+As you pass through the door you feel a chill run
+down your spine.  It appears that there something or 
+someone or something sitting in the corner, covered by darkness.
+There is no where to go but back to the west.*
+<north> None
+<east>  None
+<south> None
+<west>  Middle
+
+<Top>
+As you get closer to the second story of the mansion, the sounds of someone
+struggling can be heard more distinctly.  There is no turning back now.
+One door is to the south and one is to the north up a stairwell.*
+<north> End
+<east>  None
+<south> Middle
+<west>  None
+
+<End>
+You find your friend tied to a chair.  Their hands, feet and mouth are bound,
+but it's as if their eyes are screaming at you.  Short bursts of muffled yells
+are heard from under the cloth that holds their mouth, as if to say, "Run!".  
+What could they be trying to say?  As you walk closer to them they seem to get 
+louder and more depserate. That's when you see it.  It had been lurching in the
+corner, feathered by darkness.   To be continued...*
+<north> None
+<east>  None
+<south> None
+<west>  None
