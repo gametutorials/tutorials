@@ -14,7 +14,7 @@
 /*
 Welcome to the first tutorial on OpenGL.  OpenGL is an API for programming 3D, and is
 used to develop applications from games to medical visualizations.  This tutorial shows 
-you how to setup a basics OpenGL application and draw a triangle in 3D space.  This is the
+you how to setup a basic OpenGL application and draw a triangle in 3D space.  This is the
 first of the updated OpenGL tutorials that replaces the old OpenGL 2.0 tutorials with the
 newer OpenGL 4.0.  You will need to make sure you have the latest drivers to run this
 tutorial, which links can be found here:  https://www.opengl.org/wiki/Getting_Started.
@@ -131,7 +131,7 @@ matrix is created by calculating the inverse of a camera matrix. , which stores 
 and up vector.  A camera is described as a pinhole where it is a single point (the location
 of the camera).
 
-Projection Matrix-
+-Projection Matrix-
 Next, the Vertex is multiplied by a Projection matrix to produce the Clipping Coordinates.  A Projection matrix  
 is created by a field of view (FOV) and near and far planes.  A field of view is usually between 60-120 degrees
 The FOV and near/far planes create what is called a frustum that determines what the camera can see.  Think of 
@@ -180,7 +180,7 @@ if you are trying to make a cross-platform renderer like the Unreal Engine.
 -Shaders-
 If you haven't ever worked with shaders, let's go over a brief overview of what they are and what they can do,
 and then later you will want to check out the "Shaders\" folder to get a line-by-line instruction on each shader.
-There are multiple types of shaders such as vertex shaders, fragment shaders (pixel shader), geometry, tesselation
+There are multiple types of shaders such as vertex shaders, fragment shaders (pixel shader), geometry, tessellation
 and compute (CUDA) shaders.  In this tutorial we will just be going over the base shaders which are the vertex
 and framework shaders.  Shaders allow us to run programming instructions directly on the GPU of your video card
 which is optimized to process math, physics and rendering instructions incredibly fast.  You pass in shaders as
@@ -195,8 +195,8 @@ variables to the fragment shader like color, texture coord and normal data for t
 it's per-pixel operations.  
 
 A fragment shader handles the per-pixel operations and allows you to run calculations for every pixel on the
-screen.  This sets the final RGBA color for a pixel, and is used extensively to calcualte lighting and shadows.
-One of the most popular uses for a frament shader is to calculate beautiful lighting, especially when used with
+screen.  This sets the final RGBA color for a pixel, and is used extensively to calculate lighting and shadows.
+One of the most popular uses for a fragment shader is to calculate beautiful lighting, especially when used with
 a normal map, which will be explained in our Normal Mapping tutorial.  In a framework shader you give an output
 variable that is the final RGBA value.  This is then passed to the OpenGL pipeline to process.  In this tutorial
 we won't be passing in any color but hard coding the triangle to white.  The next tutorial will pass in colors.
