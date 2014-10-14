@@ -1,0 +1,62 @@
+#version 400
+
+layout(location=0) in vec4 in_Position;
+
+void main(void)
+{
+	gl_Position = in_Position;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//
+// * QUICK NOTES * 
+//
+// This is a vertex shader file for the OpenGL Shader Language (GLSL), which is 
+// just a text file that is loaded and passed into glShaderSource(), when 
+// initializing the shaders in our Shader class.  This program is called for every
+// vertex that is passed in from our Vertex Buffer Object.  In our case, this would
+// be called three times for each of the vertices that make up our triangle.
+//
+// In a vertex shader you first give a version that you will tell GLSL to compile
+// the code in, which in our case is 400 (no need to put decimals for 4.00).  The
+// latest OpenGL as of October 2014 is 4.4, but we'll just say version 4 for now.
+// If we wanted 4.4, we would put #version 440.
+//
+// Next, we need to define the input position that is being passed from the VBO
+// to our shader, and we need to map it to the index passed into 
+// glVertexAttribPointer(), in our case 0 for the vertex position.
+//
+// Next we create a main() function, and then set the gl_Position to the vertex.
+//
+// Let's go over the code line-by-line:
+//
+// --This is the version of OpenGL (4.00) that we require for this shader
+// #version 400
+//
+// --The next line is the vertex variable that is passed in from our Vertex Buffer
+// --to our Vertex Shader.  The layout keyword allows us to set the index
+// --that is mapped to the glVertexAttribPointer() index used.  In our case,
+// --we created a kVertexPosition which is 0 that was used to map vertices to.
+// --The "in" keyword tells OpenGL that this is an input into the shader. This
+// --is a a vec4, which is a GLSL keyword for a vector with an x,y,z,w value.
+// --We only store an x,y,z value in our vertex that we saved in our VBO, but
+// --GLSL automatically puts a 1.0 for the W value for us if it's missing.
+// --I named the input variables as "in_" and output variables as "out_", but
+// --you can call them whatever you want.
+// layout(location=0) in vec4 in_Position;
+//
+// --This is the entry point for all GLSL shaders, similar to C/C++.
+// void main(void)
+// {
+//		--gl_Position is what we set to tell OpenGL the final position, but
+//		--is actually in Clipping Coordinates, which is -1 to 1 on each axis.
+//		--Normally you would be passing in Model Coordinates for each vertex
+//		--and then multiplying the in_Position by the Model, View and Projection
+//		--matrix, but we will go over that in the Matrices tutorial later on.
+//		--For now we just pass in hard coded points that won't be clipped when drawn.
+//		gl_Position = in_Position;
+// }
+// 
+// 
+// © 2000-2014 GameTutorials

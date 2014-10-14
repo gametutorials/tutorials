@@ -1,0 +1,37 @@
+#version 400
+
+layout(location=0) out vec4 out_Color;
+
+void main(void)
+{
+	out_Color = vec4(1.0, 1.0, 1.0, 0.0);
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//
+// * QUICK NOTES * 
+//
+// Please review the Shader.vertex before reviewing this file, since it will
+// explain a few things already about the GLSL code.
+//
+// This file is the fragment shader which is used to perform calculations on every
+// pixel rendered on the screen.  In this tutorial, we will just be hard coding
+// the colors of each vertex to white, which is an rgba of (1,1,1,1).
+//
+// Like the vertex shader, we set the version to 400, which is OpenGL 4.0.  We then
+// need to define an output property that will be used to send the pixel through
+// the rest of the pipeline.  Just like in the vertex shader, we can set a location
+// for the output parameter.  It's not necessary since the default location is 0
+// for a shader, but it's a good idea to be explicit to avoid any name collisions.
+//
+// The fragment shader has a main() function like the vertex shader, and the main
+// responsibility is to set the output color.  The output property can be named
+// whatever we want, as long as it's a vec4 or vec3 it will work.  The A value
+// will just be defaulted to 0, but if you go to a vec2 it will be yellow since
+// the G value will also be defaulted to 0.  As long as we have a single "out" 
+// vector variable GLSL will know to use that as the color and interpolate that
+// color between each of the vertices passed in.  In our case, we have white for
+// hard coded so the interpolation just ends up being the same color all around.
+// 
+// © 2000-2014 GameTutorials
