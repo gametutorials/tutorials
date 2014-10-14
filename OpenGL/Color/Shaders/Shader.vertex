@@ -1,0 +1,37 @@
+#version 400
+
+layout(location=0) in vec4 in_Position;
+layout(location=1) in vec4 in_Color;
+out vec4 frag_Color;
+
+void main(void)
+{
+	gl_Position = in_Position;
+	frag_Color = in_Color;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//
+// * QUICK NOTES * 
+//
+// This is a vertex shader file for the OpenGL Shader Language (GLSL), which is 
+// just a text file that is loaded and passed into glShaderSource().  We added
+// the ability to pass in colors in this tutorial, by creating a new in_Color
+// variable, similar to our in_Position variable.  Notice the location value
+// matches the kColorIndex value of 1, this is important and is mapped together.
+// We now have a new frag_Color variable that is an output variable, and will
+// be passed from the vertex shader to the fragment shader.  Notice that it is
+// a vec4 variable which will hold the r,g,b,a values of a color input.
+//
+// Notice that we set it at the bottom of the main() function so that our 
+// in_Color is passed to our output variable frag_Color.  There is already an 
+// out_Color variable in the fragment shader so I put a prefix of "frag_" on 
+// the variable, but you can name it whatever you want as long as it's the same
+// name and is an "in" type in the fragment shader.
+//
+// This is how you pass variables between shaders, the variables must first go
+// through the vertex shader and then pass through to the fragment shader.
+// 
+// 
+// © 2000-2014 GameTutorials

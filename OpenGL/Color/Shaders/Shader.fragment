@@ -1,0 +1,29 @@
+#version 400
+
+in vec4 frag_Color;
+layout(location=0) out vec4 out_Color;
+
+void main(void)
+{
+	out_Color = frag_Color;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//
+// * QUICK NOTES * 
+//
+// Please review the Shader.vertex before reviewing this file, since it will
+// explain a few things already about the GLSL code.
+//
+// This file is the fragment shader which is used to perform calculations on every
+// pixel rendered on the screen.  In this tutorial we pass in only 3 colors, one
+// for each vertex and OpenGL will interpolate the colors for us.
+//
+// Notice that we created a new "in vec4 frag_Color", which is how we pass the
+// vertex color from the vertes shader to the fragment shader.  We can't just pass
+// in the value straight to the fragment shader.  Instead of hard coding a vec4
+// value for the out_Color, this time we just set the vertex color that was passed in.
+//
+// 
+// © 2000-2014 GameTutorials
