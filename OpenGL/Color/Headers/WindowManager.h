@@ -5,32 +5,26 @@
 #include <fstream>										// Used for fprintf and stderr									
 
 // This is our class definition for managing the creation of the window, input and the
-// creating of the OpenGL context.  This class should be inherited from to create other
-// implementations like Win32, GLUT or SDL.
+// creating of the OpenGL context.  This class should be inherited from to create
+// specific implementations like GLFW (i.e. GLFWManager), Win32, GLUT or SDL.
 class WindowManager
 {
 public:
 
-	// Create an empty constructor and have the deconstructor release our memory.
-	WindowManager()		{ }
-	~WindowManager()	{ Destroy(); }
+	// This is needed so that the class inheriting this will have it's deconstructor called
+	virtual ~WindowManager() {}
 
 	// This initialized the window and creates the OpenGL context
-	virtual int Initialize(int width, int height, std::string strTitle, bool bFullScreen = false);
-	
+	virtual int Initialize(int width, int height, std::string strTitle, bool bFullScreen = false) = 0;
+
 	// This swaps the backbuffer to the front and should be called every frame
-	virtual void SwapBuffers();
+	virtual void SwapTheBuffers() = 0;
 
 	// This processes any needed input for the application, like the Escape key
-	virtual bool ProcessInput(bool continueGame);
+	virtual bool ProcessInput(bool continueGame) = 0;
 
 	// This destroys the window and OpenGL context
-	virtual void Destroy();
-
-private:
-
-	// This is a void pointer for the reference to the window
-	void* Window;
+	virtual void Destroy() = 0;
 };
 
 #endif
@@ -40,9 +34,11 @@ private:
 //
 // * QUICK NOTES * 
 //
-// Use this class as the base class for your desired API.  We are using the
-// cross-platform GLFW in the implementation, but you can override that with
-// your own Win32, GLUT or SDL implementation.
+// Use this class as the abstract base class for your desired API.  We are using 
+// the cross-platform GLFW in our tutorials with GLFWManager class, but you can 
+// add your own for other APIs like GLUT, Win32 or SDL.  Checkout the Win32
+// implementation online, there is a Github "Gist" referenced on the first OpenGL
+// tutorial page's comments.
 // 
 // 
 // © 2000-2014 GameTutorials

@@ -1,21 +1,26 @@
 #include "GL\glew.h"
-#include "GLFW\glfw3.h"
-#include "../Headers/WindowManager.h"
+#include "../Headers/GLFWManager.h"
 #include "../Headers/Main.h"
 
 // This is the entry point into our application
 int main()
 {
-	// Create a local instance of our GLApplication (defined in Main.cpp).
+	// First create our desired WindowManager implementation so we can set it below
+	GLFWManager *pWindowManager = new GLFWManager();
+
+	// Create a local instance of our GLApplication (defined in Main.cpp) and set its
+	// WindowManager implementation (in this case, GLFW).
 	GLApplication application;
-	
+	application.SetWindowManager(pWindowManager);
+
 	// Return the GLMain() defined in Main.cpp, which handles the flow of our application
+	// and immediately starts our game loop.
 	return application.GLMain();
 }
 
 
 // This initializes our window and creates the OpenGL context
-int WindowManager::Initialize(int width, int height, std::string strTitle, bool bFullScreen)
+int GLFWManager::Initialize(int width, int height, std::string strTitle, bool bFullScreen)
 {
 	// This tries to first init the GLFW library and make sure it is available
 	if ( !glfwInit() )
@@ -48,10 +53,10 @@ int WindowManager::Initialize(int width, int height, std::string strTitle, bool 
 	}
 
 	// Create the OpenGL context from the window and settings specified
-	glfwMakeContextCurrent((GLFWwindow*)Window);
+	glfwMakeContextCurrent(Window);
 
 	// This turns on STICKY_KEYS for keyboard input
-	glfwSetInputMode((GLFWwindow*)Window, GLFW_STICKY_KEYS, GL_TRUE);
+	glfwSetInputMode(Window, GLFW_STICKY_KEYS, GL_TRUE);
 
 	// Tell GLEW to grab all the OpenGL functions and extensions even if "experimental"
 	glewExperimental = GL_TRUE;
@@ -72,18 +77,18 @@ int WindowManager::Initialize(int width, int height, std::string strTitle, bool 
 
 
 // This swaps the backbuffer with the front buffer to display the content rendered in OpenGL
-void WindowManager::SwapBuffers()
+void GLFWManager::SwapTheBuffers()
 {
 	// This takes the Window and swaps the backbuffer to the front
-	glfwSwapBuffers((GLFWwindow*)Window);
+	glfwSwapBuffers(Window);
 }
 
 
 // This function processes all the application's input and returns a bool to tell us if we should continue
-bool WindowManager::ProcessInput(bool continueGame = true)
+bool GLFWManager::ProcessInput(bool continueGame = true)
 {
 	// Use the GLFW function to check for the user pressing the Escape button, as well as a window close event.
-	if ( glfwGetKey((GLFWwindow*)Window, GLFW_KEY_ESCAPE) == GLFW_PRESS || glfwWindowShouldClose((GLFWwindow*)Window) != 0 )
+	if ( glfwGetKey(Window, GLFW_KEY_ESCAPE) == GLFW_PRESS || glfwWindowShouldClose(Window) != 0 )
 		return false;
 
 	// Poll the input events to see if the user quit or closed the window
@@ -95,7 +100,7 @@ bool WindowManager::ProcessInput(bool continueGame = true)
 
 
 // This destroys the window
-void WindowManager::Destroy()
+void GLFWManager::Destroy()
 {
 	// This closes the OpenGL window and terminates the application
 	glfwTerminate();

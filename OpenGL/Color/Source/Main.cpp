@@ -95,8 +95,8 @@ int GLApplication::GLMain()
 // This function initializes the window, the shaders and the triangle vertex data.
 void GLApplication::Initialize()
 {
-	// Make sure the global window manager initialzes and creates the OpenGL context.
-	if ( WindowManager.Initialize(1024, 768, "GameTutorials - Color in OpenGL 4", false) != 0 )
+	// Make sure the window manager is initialzed prior to calling this and creates the OpenGL context
+	if ( !WindowManager || WindowManager->Initialize(1024, 768, "GameTutorials - Color", false) != 0 )
 	{
 		// Quit the application if the window couldn't be created with an OpenGL context
 		exit(-1);
@@ -127,7 +127,7 @@ void GLApplication::Initialize()
 void GLApplication::GameLoop()
 {
 	// Loop until the user hits the Escape key or closes the window
-	while ( WindowManager.ProcessInput(true) )
+	while ( WindowManager->ProcessInput(true) )
 	{
 		// This clears the screen every frame to black (color can be changed with glClearColor).
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -136,7 +136,7 @@ void GLApplication::GameLoop()
 		g_Triangle.Render();
 
 		// Swap the buffers to display the final rendered image on screen
-		WindowManager.SwapBuffers();
+		WindowManager->SwapTheBuffers();
 	}
 }
 
@@ -147,8 +147,14 @@ void GLApplication::Destroy()
 	// Free the vertex buffers and array objects
 	g_Triangle.Destroy();
 
-	// Release the memory for the window
-	WindowManager.Destroy();
+	// If we have a window manager still allocated then destroy and delete it
+	if ( WindowManager )
+	{
+		WindowManager->Destroy();
+
+		delete WindowManager;
+		WindowManager = nullptr;
+	}
 }
 
 

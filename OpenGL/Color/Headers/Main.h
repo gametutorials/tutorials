@@ -9,9 +9,18 @@ class GLApplication
 {
 public:
 
+	// Create a default constructor and deconstructor which cleans up
+	GLApplication() {}
+	~GLApplication() { Destroy(); }
+
 	// This is the main function for our application, which is called by the main() function
 	// in the WindowManager.cpp file.  This helps abstract out the environments entry point.
 	int GLMain();
+
+	// This gets and sets the window manager for the application.  This should be set right
+	// after the GLApplication is created in the main() function.
+	WindowManager *GetWindowManager() { return WindowManager; }
+	void SetWindowManager(WindowManager *pWindowManager) { WindowManager = pWindowManager; }
 
 	// This initializes the application
 	void Initialize();
@@ -24,9 +33,10 @@ public:
 
 private:
 
-	// Our global window manager to create the window and manage input, which should be
+	// Our abstract window manager to create the window and manage input, which should be
 	// environment agnostic.  Our main application shouldn't know if it's Win32 or GLFW.
-	WindowManager WindowManager;							
+	// This is instantiated and set in GLFWManager.cpp in the main() function.
+	WindowManager *WindowManager;
 };
 
 #endif

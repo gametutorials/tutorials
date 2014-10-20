@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\GLFWManager.h" />
     <ClInclude Include="Headers\Main.h" />
     <ClInclude Include="Headers\Model.h" />
     <ClInclude Include="Headers\Shader.h" />
@@ -21,10 +22,10 @@
     <None Include="Shaders\Shader.vertex" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\GLFWManager.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Model.cpp" />
     <ClCompile Include="Source\Shader.cpp" />
-    <ClCompile Include="Source\WindowManager.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E7A7FA46-6B2D-4B68-8077-4EDEA614B8E4}</ProjectGuid>
