@@ -230,7 +230,7 @@ normally setup something for Dependency Injection but I didn't want to add too m
 Notice that our .cpp files go in the "Source Files\" folder, the .h files go in the "Header Files\" folder and 
 the shader files have their own folder as well.  The tutorials will always start at the Main.cpp file so please 
 look their first to start the tutorial.  This has a ton of things to go over so let's just jump in and take a look 
-at the code. If you can get through this firt tutorial, the rest should be much easier to swallow because we now
+at the code. If you can get through this first tutorial, the rest should be much easier to swallow because we now
 have a great base to just tweak going forward.
 */
 

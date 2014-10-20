@@ -26,9 +26,11 @@ implementation of this online on the tutorial page, which is a Win32Manager.
 // set to a "Console" application and wouldn't compile with a WinMain().
 int main()
 {
+	// First create our desired WindowManager implementation so we can set it below
 	GLFWManager *pWindowManager = new GLFWManager();
 	
-	// Create a local instance of our GLApplication (defined in Main.cpp).
+	// Create a local instance of our GLApplication (defined in Main.cpp) and set its
+	// WindowManager implementation (in this case, GLFW).
 	GLApplication application;
 	application.SetWindowManager(pWindowManager);
 
@@ -133,7 +135,7 @@ bool GLFWManager::ProcessInput(bool continueGame = true)
 {
 	// Use the GLFW function to check for the user pressing the Escape button, as well as a window close event.
 	// If any of these checks return true, return false back to the caller to let them know the user has quit.
-	if ( glfwGetKey((GLFWwindow*)Window, GLFW_KEY_ESCAPE) == GLFW_PRESS || glfwWindowShouldClose((GLFWwindow*)Window) != 0 )
+	if ( glfwGetKey(Window, GLFW_KEY_ESCAPE) == GLFW_PRESS || glfwWindowShouldClose(Window) != 0 )
 		return false;
 
 	// Poll the input events to see if the user quit or closed the window.  This can only be called

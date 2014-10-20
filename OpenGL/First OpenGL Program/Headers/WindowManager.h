@@ -14,6 +14,9 @@ class WindowManager
 {
 public:
 
+	// This is needed so that the class inheriting this will have it's deconstructor called
+	virtual ~WindowManager() {}
+
 	// This initialized the window and creates the OpenGL context
 	virtual int Initialize(int width, int height, std::string strTitle, bool bFullScreen = false) = 0;
 
