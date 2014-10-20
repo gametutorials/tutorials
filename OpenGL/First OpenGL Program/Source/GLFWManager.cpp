@@ -1,6 +1,5 @@
 #include "GL\glew.h"
-#include "GLFW\glfw3.h"
-#include "../Headers/WindowManager.h"
+#include "../Headers/GLFWManager.h"
 #include "../Headers/Main.h"
 
 /*
@@ -16,21 +15,23 @@ so that Windows, Mac OSX and Linux users can compile the tutorials, where before
 just focused on Windows (Win32) development.  You can consider this our attempt to
 broaden our tent to the other technologies :)  If you want to use Win32, you can just
 add the WinMain and code to this file, replacing the main() function below, then just
-replace the rest of the functions internals to be Win32 specific.  You would then use
-the Window void pointer to be the handle to the window.  A better implementation would
-be to just use this as the base class and inherit your own Win32WindowManager, then
-you can override the virtual functions in the WindowManager base class.  I will try and
-create a tutorial with this for those who are interested.
+replace the rest of the functions internals to be Win32 specific.  You can find an
+implementation of this online on the tutorial page, which is a Win32Manager.
 */
 
 // This is the entry point into our application, which is just a console application.
 // Using the GLFW library, this allows us to create a separate window for our OpenGL rendering
 // that is cross-platform.  If you wanted to use Win32, you would replace this with WinMain.
+// And change your project Properties->Linker->System->SubSystem: Windows, since it's now
+// set to a "Console" application and wouldn't compile with a WinMain().
 int main()
 {
+	GLFWManager *pWindowManager = new GLFWManager();
+	
 	// Create a local instance of our GLApplication (defined in Main.cpp).
 	GLApplication application;
-	
+	application.SetWindowManager(pWindowManager);
+
 	// Return the GLMain() defined in Main.cpp, which handles the flow of our application
 	// and immediately starts our game loop.
 	return application.GLMain();
@@ -38,7 +39,7 @@ int main()
 
 
 // This initializes our window and creates the OpenGL context
-int WindowManager::Initialize(int width, int height, std::string strTitle, bool bFullScreen)
+int GLFWManager::Initialize(int width, int height, std::string strTitle, bool bFullScreen)
 {
 	// This tries to first init the GLFW library and make sure it is available
 	if ( !glfwInit() )
@@ -82,16 +83,14 @@ int WindowManager::Initialize(int width, int height, std::string strTitle, bool 
 		return -1;
 	}
 
-	// Create the OpenGL context from the window and settings specified.  Notice that we have to cast
-	// the Window object as a GLFWwindow* object, this is so that our WindowManager isn't coupled to
-	// the GLFW class, but can be inherited from to create your own Win32 or GLUT window setup.
-	glfwMakeContextCurrent((GLFWwindow*)Window);
+	// Create the OpenGL context from the window and settings specified
+	glfwMakeContextCurrent(Window);
 
 	// This turns on STICKY_KEYS for keyboard input, so that glfwgetKey() returns GLFW_PRESS the next 
-	// time it's called if the key has been released before the call.  We pass in our casted Window 
-	// object as the first parameter, then the settings to turn STICKY_KEYS set to TRUE.
-	// Keyboard input will still work without this, just not "sticky".
-	glfwSetInputMode((GLFWwindow*)Window, GLFW_STICKY_KEYS, GL_TRUE);
+	// time it's called if the key has been released before the call.  We pass in our Window object
+	// as the first parameter, then the settings to turn STICKY_KEYS set to TRUE.  Keyboard input will 
+	// still work without this, just not "sticky".
+	glfwSetInputMode(Window, GLFW_STICKY_KEYS, GL_TRUE);
 
 	// This is an important part, at least for my system I had to set this parameter to true otherwise
 	// OpenGL wouldn't work and the GLEW library would fail to load.  Apparently, this is because by
@@ -119,18 +118,18 @@ int WindowManager::Initialize(int width, int height, std::string strTitle, bool 
 
 
 // This swaps the backbuffer with the front buffer to display the content rendered in OpenGL
-void WindowManager::SwapBuffers()
+void GLFWManager::SwapTheBuffers()
 {
 	// This takes the Window and swaps the backbuffer to the front.  This way we don't see tearing
 	// as the content is drawn to the screen each frame.  This is called double buffering.  This
 	// should be called at the end of the Render() function in the GLApplication, once all content
-	// in done rendering.  We cast the Window object to it's original type, a GLFWwindow*.
-	glfwSwapBuffers((GLFWwindow*)Window);
+	// in done rendering.  We pass in the GLFW window object to this function.
+	glfwSwapBuffers(Window);
 }
 
 
 // This function processes all the application's input and returns a bool to tell us if we should continue
-bool WindowManager::ProcessInput(bool continueGame = true)
+bool GLFWManager::ProcessInput(bool continueGame = true)
 {
 	// Use the GLFW function to check for the user pressing the Escape button, as well as a window close event.
 	// If any of these checks return true, return false back to the caller to let them know the user has quit.
@@ -148,7 +147,7 @@ bool WindowManager::ProcessInput(bool continueGame = true)
 
 
 // This destroys the window
-void WindowManager::Destroy()
+void GLFWManager::Destroy()
 {
 	// This closes the OpenGL window and terminates the application
 	glfwTerminate();
@@ -160,13 +159,14 @@ void WindowManager::Destroy()
 // * QUICK NOTES * 
 //
 // This file is to abstract our window code from the rest of the application so
-// that we can change or inherit from to do another API like Win32, GLUT or SDL.
-// We are using the cross-platform GLFW library which should allow you to compile
-// this on Windows, Mac OSX or Linux by using the necessary compilers.  We'll try
-// include these cross-platform projects for Mac and Linux so you don't have to
-// generate them yourself.  You will also need to make sure you have the library
-// compiled for your environment instead of the Windows environment in this 
-// tutorial.  Please refer to the Main.cpp file for the start of this tutorial.
+// that we can change or inherit from the WindowManager to do another API like 
+// Win32, GLUT or SDL.  We are using the cross-platform GLFW library which should 
+// allow you to compile this on Windows, Mac OSX or Linux by using the necessary 
+// compilers.  We'll try include these cross-platform projects for Mac and Linux 
+// so you don't have to generate them yourself.  You will also need to make sure 
+// you have the library compiled for your environment instead of the Windows 
+// environment in this tutorial.  Please refer to the Main.cpp file for the start 
+// of this tutorial.  Checkout the Win32Manager on the tutorial page online.
 // 
 //
 // © 2000-2014 GameTutorials

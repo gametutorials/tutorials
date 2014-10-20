@@ -31,13 +31,16 @@ of programming.
 *Third-party libraries used*
 I spent hours going back and forth trying to decide if I should eventually buckle and stop using
 Win32 for the OpenGL tutorials so that Mac and Linux users could also benefit from the tutorials,
-and after researching a third-party library called GLFW that allows cross-platform development,
-I was impressed with the adoption and useability and decided to change all the OpenGL
-tutorials to use GLFW going forward.  I hope to build a Win32 base as well for those who still
-want to work with Win32.  In the effort to try and abstract the library used to created the window
-and handle input, I created the WindowManager to take care of all the window and input code that
-GLFW does for us.  By using CMake and following the directions on the GLFW website, you should
-be able to build this project on Mac or OSX.  More details and downloads here: http://www.glfw.org/
+For a long time GLUT or SDL were the ones used but after researching third-party library option
+I found one called GLFW that also allows cross-platform development, and has become quite popular.
+I was impressed with the adoption and useability and decided to change all the OpenGL tutorials
+that I make going forward to use GLFW.  In the effort to try and abstract the library used to 
+created the window and handle input, I created the WindowManager abstract base class to take care 
+of all the window and input code that GLFW does for us.  The GLFWManager then inherits this base 
+class so that the GLApplication has no idea about what API is being used to handle the window and 
+input.  By using CMake and following the directions on the GLFW website, you should be able to 
+build this project on Mac OSX or Linux. More details and downloads here: http://www.glfw.org/.
+I also built a Win32Manager as well for those who still want to work with Win32.
 
 In order to be able to call any functions in OpenGL after version 1.1 you have to use function
 pointers and query your graphics card drivers to see which extensions or latest functions the
@@ -222,21 +225,23 @@ specified in the glVertexAttribPointer() call.  Refer to the Model.cpp file for 
 -Project Layout-
 In this project we created a few classes to make our OpenGL programming more organized and easier to swap out
 window creation technologies like Win32, GLUT, SDL, etc..  This way if you want to change from GLFW to GLUT or
-Win32, you can just change the WindowManager.cpp file to implement those specific window functions and leave
-the WindowManager.h the same.  I would normally setup something for Dependency Injection but I didn't want
-to add too much complication to the tutorials.  Notice that our .cpp files going in the "Source Files\" folder,
-the .h files go in the "Header Files\" folder and the shader files have their own folder as well.  The tutorials
-will always start at the Main.cpp file so please look their first to start the tutorial.  This has a ton of things
-to go over so let's just jump in and take a look at the code. 
+Win32, you can just inherit the WindowManager class to implement those specific window functions.  I would 
+normally setup something for Dependency Injection but I didn't want to add too much complication to the tutorials.
+Notice that our .cpp files go in the "Source Files\" folder, the .h files go in the "Header Files\" folder and 
+the shader files have their own folder as well.  The tutorials will always start at the Main.cpp file so please 
+look their first to start the tutorial.  This has a ton of things to go over so let's just jump in and take a look 
+at the code. If you can get through this firt tutorial, the rest should be much easier to swallow because we now
+have a great base to just tweak going forward.
 */
 
 Model g_Triangle;										// Our class to handle initializing and drawing our triangle
 
 
 // This is our own main() function which abstracts the required main() function to run this application.
-// This way if we want to run a Win32 application which requires a WinMain(), we can hide that in the WindowManager,
-// which currently has a regular console application main() function that just immediately calls this function.
-// You can look to this function as the first thing that will happen in our application.
+// This way if we want to run a Win32 application which requires a WinMain(), we can hide that in a Win32Manager,
+// which our GLFWManager currently has a regular console application main() function that just immediately calls 
+// this function after setting the WindowManager class. You can look to this function as the first thing that will 
+// happen in our OpenGL applications that is outside the general one-time initialization for our window.
 int GLApplication::GLMain()
 {
 	// This calls our Initialize() function below which sets up the creation of the window and initializes
@@ -257,9 +262,9 @@ int GLApplication::GLMain()
 // This function initializes the window, the shaders and the triangle vertex data.
 void GLApplication::Initialize()
 {
-	// Make sure the global window manager initialzes and creates the OpenGL context.
+	// Make sure the window manager is initialzed prior to calling this and creates the OpenGL context.
 	// This takes in a window width, height, title and a fullscreen boolean.
-	if ( WindowManager.Initialize(1024, 768, "GameTutorials - First OpenGL 4 Program", false) != 0 )
+	if ( !WindowManager || WindowManager->Initialize(1024, 768, "GameTutorials - First OpenGL 4 Program", false) != 0 )
 	{
 		// Quit the application if the window couldn't be created with an OpenGL context
 		exit(-1);
@@ -309,7 +314,7 @@ void GLApplication::GameLoop()
 	// abstract the input from the main application flow so that we can make it easier for different 
 	// environments.  We pass in true to always keep the loop running, but this could be replaced with a
 	// custom boolean variable like bGameNotOver that could be set somewhere else like a menu system.
-	while ( WindowManager.ProcessInput(true) )
+	while ( WindowManager->ProcessInput(true) )
 	{
 		// This clears the screen every frame to black (color can be changed with glClearColor).
 		// Since our triangle isn't moving it doesn't really matter, but once you have moving objects
@@ -324,7 +329,7 @@ void GLApplication::GameLoop()
 		// happening as we draw many objects to the screen during a single frame.  This is the same as drawing
 		// objects in 2D, you don't swap the buffers until all the objects have been drawn on the screen.
 		// Since each cross-platform framework has their own method for this, we abstract it in our own class.
-		WindowManager.SwapBuffers();
+		WindowManager->SwapTheBuffers();
 	}
 }
 
@@ -335,8 +340,14 @@ void GLApplication::Destroy()
 	// Free the vertex buffers and array objects
 	g_Triangle.Destroy();
 
-	// Release the memory for the window
-	WindowManager.Destroy();
+	// If we have a window manager still allocated then destroy and delete it
+	if ( WindowManager )
+	{
+		WindowManager->Destroy();
+
+		delete WindowManager;
+		WindowManager = nullptr;
+	}
 }
 
 
@@ -356,4 +367,5 @@ void GLApplication::Destroy()
 // 
 // The next tutorial will go over adding the ability to pass in colors to the shaders.
 // 
+//
 // © 2000-2014 GameTutorials
