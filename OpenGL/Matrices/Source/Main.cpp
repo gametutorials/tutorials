@@ -105,7 +105,7 @@ final Model Matrix.
 
 *GLM (OpenGL Mathematics Library)*
 GLM is a header only library, which means you don't need to compile any DLL's or libraries, 
-and it is platform independant.  In this tutorial we added the GLM library in our Lib\ folder, 
+and it is platform independent.  In this tutorial we added the GLM library in our Lib\ folder, 
 and made sure our project added the Lib\ folder as an "include" directory.  For users not using 
 Visual Studio to build these tutorials you will need to add this in your own compiler 
 settings/projects.  GLM mimics the GLSL shader language in terms of variables and functions,
@@ -232,7 +232,7 @@ int GLApplication::GLMain()
 // This function initializes the window, the shaders and the triangle vertex data.
 void GLApplication::Initialize()
 {
-	// Make sure the window manager is initialzed prior to calling this and creates the OpenGL context
+	// Make sure the window manager is initialized prior to calling this and creates the OpenGL context
 	if ( !WindowManager || WindowManager->Initialize(ScreenWidth, ScreenHeight, "GameTutorials - Matrices", false) != 0 )
 	{
 		// Quit the application if the window couldn't be created with an OpenGL context
