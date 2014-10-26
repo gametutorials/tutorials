@@ -1,8 +1,9 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FramesPerSecond", "FramesPerSecond.vcxproj", "{B1DCC798-9127-4AF9-ADD4-071B0467B473}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FramesPerSecond", "FramesPerSecond.vcxproj", "{E7A7FA46-6B2D-4B68-8077-4EDEA614B8E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +11,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B1DCC798-9127-4AF9-ADD4-071B0467B473}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B1DCC798-9127-4AF9-ADD4-071B0467B473}.Debug|Win32.Build.0 = Debug|Win32
-		{B1DCC798-9127-4AF9-ADD4-071B0467B473}.Release|Win32.ActiveCfg = Release|Win32
-		{B1DCC798-9127-4AF9-ADD4-071B0467B473}.Release|Win32.Build.0 = Release|Win32
+		{E7A7FA46-6B2D-4B68-8077-4EDEA614B8E4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E7A7FA46-6B2D-4B68-8077-4EDEA614B8E4}.Debug|Win32.Build.0 = Debug|Win32
+		{E7A7FA46-6B2D-4B68-8077-4EDEA614B8E4}.Release|Win32.ActiveCfg = Release|Win32
+		{E7A7FA46-6B2D-4B68-8077-4EDEA614B8E4}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

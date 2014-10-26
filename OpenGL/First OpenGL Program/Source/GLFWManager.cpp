@@ -94,6 +94,11 @@ int GLFWManager::Initialize(int width, int height, std::string strTitle, bool bF
 	// still work without this, just not "sticky".
 	glfwSetInputMode(Window, GLFW_STICKY_KEYS, GL_TRUE);
 
+	// This turns off the vertical sync to your monitor, which says only render as fast as your
+	// monitor's refresh rate is set to (usually 60 Hz, which would give 60 frames per second).
+	// By passing in 0, we tell OpenGL to render as fast as possible, even if it causes tearing.
+	glfwSwapInterval(0);
+	
 	// This is an important part, at least for my system I had to set this parameter to true otherwise
 	// OpenGL wouldn't work and the GLEW library would fail to load.  Apparently, this is because by
 	// setting it to Experimental, it goes and search for all supported OpenGL functions even if the

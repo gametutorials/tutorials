@@ -58,6 +58,9 @@ int GLFWManager::Initialize(int width, int height, std::string strTitle, bool bF
 	// This turns on STICKY_KEYS for keyboard input
 	glfwSetInputMode(Window, GLFW_STICKY_KEYS, GL_TRUE);
 
+	// This turns off the vertical sync to your monitor so it renders as fast as possible
+	glfwSwapInterval(0);
+
 	// Tell GLEW to grab all the OpenGL functions and extensions even if "experimental"
 	glewExperimental = GL_TRUE;
 

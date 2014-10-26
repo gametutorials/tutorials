@@ -250,8 +250,8 @@ void GLApplication::Initialize()
 	glEnable(GL_DEPTH_TEST);
 
 	// Create the projection matrix with GLM's perspective function, replacing gluPerspective.
-	//									FOV		      Aspect Ratio				  Near  Far Planes
-	mat4 projectionMatrix = perspective(60.0f, ScreenWidth / (float)ScreenHeight, 0.5f, 150.f);
+	//												  FOV		    Aspect Ratio				Near / Far Planes
+	mat4 projectionMatrix = perspective(glm::radians(60.0f), ScreenWidth / (float)ScreenHeight, 0.5f, 150.f);
 
 	//////////// *** NEW *** ////////// *** NEW *** ///////////// *** NEW *** ////////////////////
 

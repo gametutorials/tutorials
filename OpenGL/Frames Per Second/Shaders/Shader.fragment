@@ -1,0 +1,19 @@
+#version 400
+
+in vec4 frag_Color;
+layout(location=0) out vec4 out_Color;
+
+void main(void)
+{
+	out_Color = frag_Color;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//
+// * QUICK NOTES * 
+//
+// Nothing new was added to this fragment shader since the last tutorial.
+//
+// 
+// © 2000-2014 GameTutorials

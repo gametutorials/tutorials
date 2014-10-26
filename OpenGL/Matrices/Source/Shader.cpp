@@ -2,9 +2,9 @@
 //																		 //
 //		- "Talk to me like I'm a 3 year old!" Programming Lessons -		 //
 //                                                                       //
-//		$Program:		Color											 //
+//		$Program:		Matrices										 //
 //																		 //
-//		$Description:	Draws a colored triangle in OpenGL 4			 //
+//		$Description:	Shows a basic introduction to OpenGL Matrices.	 //
 //																		 //
 //***********************************************************************//
 

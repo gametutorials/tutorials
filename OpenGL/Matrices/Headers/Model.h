@@ -1,6 +1,8 @@
 #ifndef _ModelManager_H
 #define _ModelManager_H
 
+#define GLM_FORCE_RADIANS								// Make sure GLM is using radians instead of degrees
+
 #include <stdio.h>										// Used for fprintf and stderr
 #include <stdlib.h>										// Used for the exit() function
 #include <GL\glew.h>									// Used for the OpenGL types like GLuint
