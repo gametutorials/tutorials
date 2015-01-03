@@ -223,8 +223,22 @@ void GLApplication::GameLoop()
 
 		//////////// *** NEW *** ////////// *** NEW *** ///////////// *** NEW *** ////////////////////
 
+		// Set the position of the first triangle to be at the origin
+		g_Triangle.SetPosition(vec3(0, 0, 0));
 
 		// Render the first triangle
+		g_Triangle.Render();
+
+		// Move the position to the right and back one
+		g_Triangle.SetPosition(vec3(1, 0, -1));
+
+		// Render the second triangle with the new position
+		g_Triangle.Render();
+
+		// Move the position to the left and back one
+		g_Triangle.SetPosition(vec3(-1, 0, -1));
+
+		// Render the third triangle with a new position
 		g_Triangle.Render();
 
 		// Swap the buffers to display the final rendered image on screen
