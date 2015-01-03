@@ -78,9 +78,6 @@ int GLFWManager::Initialize(int width, int height, std::string strTitle, bool bF
 	// This turns on STICKY_KEYS for keyboard input
 	glfwSetInputMode(Window, GLFW_STICKY_KEYS, GL_TRUE);
 
-	glfwSetInputMode(Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-	glfwSetCursorPos(Window, 0, 0);
-
 	// This turns off the vertical sync to your monitor so it renders as fast as possible
 	glfwSwapInterval(0);
 
