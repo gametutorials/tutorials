@@ -32,7 +32,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E7A7FA46-6B2D-4B68-8077-4EDEA614B8E4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Matrices</RootNamespace>
+    <RootNamespace>FramesPerSecond</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

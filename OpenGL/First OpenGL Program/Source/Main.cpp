@@ -33,7 +33,7 @@ I spent hours going back and forth trying to decide if I should eventually buckl
 Win32 for the OpenGL tutorials so that Mac and Linux users could also benefit from the tutorials,
 For a long time GLUT or SDL were the ones used but after researching third-party library option
 I found one called GLFW that also allows cross-platform development, and has become quite popular.
-I was impressed with the adoption and useability and decided to change all the OpenGL tutorials
+I was impressed with the adoption and usability and decided to change all the OpenGL tutorials
 that I make going forward to use GLFW.  In the effort to try and abstract the library used to 
 created the window and handle input, I created the WindowManager abstract base class to take care 
 of all the window and input code that GLFW does for us.  The GLFWManager then inherits this base 
