@@ -34,7 +34,7 @@ public:
 	void SetPosition(vec3 position)	{ Position = position; }
 	vec3 GetPosition()	{ return Position; }
 
-	// This calculates the current view from the position and rotation matrix
+	// This calculates the current view vector from the rotation matrix (hard coded for now)
 	vec3 GetView();
 
 	// This sets and gets the Yaw and Pitch rotations (in radians)

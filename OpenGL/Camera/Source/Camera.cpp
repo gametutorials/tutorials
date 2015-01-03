@@ -54,24 +54,33 @@ void Camera::PositionCamera(float positionX, float positionY, float positionZ, f
 // This returns the camera's view matrix that is used to pass to our shaders
 mat4 Camera::GetViewMatrix()
 {
-	// In this tutorial we aren't using rotations so our view matrix is just a translation
-	// matrix with our negative Position.  The negative position creates a matrix for the 
-	// view that the camera is looking at, since in our case we are looking down the negative 
-	// z-axis which is the default with no rotations.  In the next tutorial we will multiply
-	// this matrix by our created rotation matrix from the yaw and pitch values.  Just know
-	// for now that you would never leave it like this but to just break up the tutorials
-	// I left out the rotation matrix math.
-	return translate(mat4(), -Position);
+	// In order for the graphics card to draw anything on the screen it needs to know
+	// where the camera is and what's it looking at so it knows what to draw on screen.
+	// We tell OpenGL about our camera with a View Matrix, which is passed to our shaders.
+	// To create a view matrix you multiply the camera's rotation matrix by the inverse
+	// of the translation matrix.  The rotation matrix contains all the rotations for
+	// our Yaw and Pitch, and the translation matrix contains the Position of the camera.
+	
+	// In this tutorial we aren't using rotations so our view matrix is just the inverse
+	// of a translation matrix.  This is the same as translate(mat4(), -Position).  The
+	// negative position (or inverse) creates a matrix for the view that the camera is 
+	// looking at, since in our case we are looking down the negative z-axis which is 
+	// the default with no rotations.  In the next tutorial we will multiply this matrix 
+	// by a created rotation matrix from the yaw and pitch values.  Just know for now 
+	// that you would never leave it like this but to just break up the tutorials I left 
+	// out the rotation matrix calculations.
+	return inverse(translate(mat4(), Position));
 }
 
 
-// This returns the current view (what the camera is looking at) from the position and rotations
+// This returns the current view vector (the direction the camera is looking) from the rotation matrix
 vec3 Camera::GetView()
 {
-	// Since we aren't using rotations yet, our view vector is just our current camera
-	// Position + a unit vector (length of 1) looking down the negative z-axis.  In the
-	// next tutorial we will add our rotation matrix to get a more functional view vector.
-	return vec3(Position + vec3(0, 0, -1));
+	// Since we aren't using rotations yet, our view vector is just a unit vector (length of 1) 
+	// looking down the negative z-axis.  In the next tutorial we will add our rotation matrix 
+	// to get a changing and rotated view vector.  So when the camera moves it will be going
+	// in this direction only.
+	return vec3(0, 0, -1);
 }
 
 
@@ -79,14 +88,18 @@ vec3 Camera::GetView()
 void Camera::MoveCamera(float speed)
 {
 	// In order to move the camera, we first need to get the direction that the camera is
-	// facing.  We do that by taking our view (the location we are looking) and subtract
-	// the camera's Position from it.  That will give us a view vector (direction) that
-	// the camera is looking.  We then glm::normalize() that vector to make sure it has
-	// a length of 1 to make our calculations for our speed uniform no matter how far
-	// away the view location is from the camera.
+	// facing.  We have this from our GetView() function.  Until we get rotations in the 
+	// next tutorial, we just hard code our view vector to look down the negative z-axis.  
+	
+	// *SIDE NOTE* If you were storing a position and view location like in our old OpenGL 
+	// tutorials, you would need to take the view (the location we are looking) and 
+	// subtract the camera's Position from it.  That will give us a view vector (direction) 
+	// that the camera is looking.  You would need to then normalize() that vector to make 
+	// sure it has a length of 1 to make our calculations for our speed consistent no 
+	// matter how far away the view location is from the camera.  
 
 	// Get our normalized view vector (The direction we are facing)
-	vec3 viewVector = normalize(GetView() - Position);
+	vec3 viewVector = GetView();
 
 	// Now that we have the direction the camera is facing, we will move the position
 	// along that vector with a consistent speed.  The speed is consistent because we
@@ -118,10 +131,12 @@ void Camera::MoveCamera(float speed)
 // As a reminder, this class is super bare bones and we will be building on top
 // of it throughout the next tutorials in the camera series.
 //
-// We will be using the glm library for all of our 3D math functions, but if you'd
-// like to know how to create your own normalize() function, here is what we used
-// in our legacy tutorials:
-//
-// NormalizedVector = Vector / sqrt(Vector.x^2 + Vector.y^2 + Vector.z^2)
+// We are using the glm library for all of our 3D math functions, so the inverse()
+// function comes in handy.  Taking the inverse of a matrix is the same idea as
+// reciprocal of a number, like the reciprocal of 100 is 1/100.  Since you don't
+// divide with matrices, you create an inverse of a matrix.  If you were to
+// multiply a matrix by it's inverse it returns the identity matrix.  As you will
+// see in the next tutorial we use the inverse to derive the view and up vector
+// from the inverse of the rotation matrix.
 //
 // ©2000-2015 GameTutorials

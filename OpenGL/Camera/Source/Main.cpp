@@ -69,10 +69,9 @@ direction of that view.  In the new method, we don't store a view vector but jus
 rotations (in radians format) to tell our camera where it is looking at, and so we need to
 calculate the view vector from our yaw and pitch angles.  Since we aren't doing any rotations
 in this first tutorial, we leave the yaw and pitch set to 0 which has the camera looking
-down the negative z-axis with a direction of vec3(0, 0, -1).  So to calculate the view vector
-we can simply just add our Position to that vector, as shown in Camera::GetView().  The next
-tutorials will create a rotation matrix and then use the inversion of that matrix to determine
-our current view vector.
+down the negative z-axis with a direction of vec3(0, 0, -1).  So until we start using rotations
+in the next tutorial we just hard code our view vector in GetView().  The next tutorials will 
+create a rotation matrix and use the inverse of that matrix to determine our current view vector.
 
 Notice that I didn't mention changing the y value of our Position.  This is because we want to
 keep the camera on the ground, otherwise if the user looked up and you also moved the y position
@@ -82,25 +81,15 @@ add that if your game depends needs it, but in our case we will just keep the ca
 The math to move a position along a vector is shown below from the Camera's MoveCamera():
 
 // Get our normalized view vector (The direction we are facing)
-vec3 viewVector = normalize(GetView() - Position);
+vec3 viewVector = GetView();
 
 // Move our camera position forward or backward along the view vector
 Position.x += viewVector.x * speed;		// Add our acceleration to our position's X
 Position.z += viewVector.z * speed;		// Add our acceleration to our position's Z
 
-We first get the view vector which is the point the camera is looking at minus the Position.  We
-use the glm::normalize() function to make sure that the directional vector is a length of one.
-Normalizing a vector of (100, 0, 0) would return (1, 0, 0), which gives it a length of 1.  This
-makes vector math easier and you can take shortcuts on some equations if you make are working with
-a unit vector, which has a length of 1.  It also ensures that moving the position along the
-vector at a constant speed is the same no matter where the view is.  For instance, if you told the
-camera to look at a point that is 200 units away it wouldn't matter when we tried to move in that
-direction because we first normalized that vector and then applied a speed to it every frame.
-
-Notice that we call a GetView() to get our view vector. This is because we don't store a view
-vector but need to calculate it.  In this first tutorial since we don't use any rotations we just
-hard code it as the Position + vec3(0, 0, -1) to be looking down the negative z-axis, but in the
-next tutorial we will use our rotation matrix to calculate the view vector.
+We first get the view vector which is the point the camera is looking, which in this tutorials
+is hard coded to vec3(0, 0, -1) since we have no way to rotate it yet.  We call a GetView() to 
+get our view vector. This is because we don't store a view vector but need to calculate it.
 
 *InputManager*
 Since each API for our WindowManager has a different way to process input such as GLFW, Win32,
