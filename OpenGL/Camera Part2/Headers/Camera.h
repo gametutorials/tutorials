@@ -49,9 +49,6 @@ public:
 	// This returns the camera's up vector (the direction pointing up)
 	vec3 GetUp();
 
-	// This returns the camera's right vector (perpendicular vector pointing to the right)
-	vec3 GetRight();
-
 	//////////// *** NEW *** ////////// *** NEW *** ///////////// *** NEW *** ////////////////////
 
 
