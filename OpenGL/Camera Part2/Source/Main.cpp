@@ -131,8 +131,7 @@ void GLApplication::Initialize()
 	Camera->SetPerspective(glm::radians(60.0f), ScreenWidth / (float)ScreenHeight, 0.5f, 150.f);
 
 	// Below we call our init function for our camera to give it a position, a yaw and a pitch rotation.
-	// 0 for a yaw and pitch will put the camera looking directly down the negative z-axis.  We don't
-	// do any rotations yet so a different pitch or yaw won't do anything until our next tutorial.
+	// 0 for a yaw and pitch will put the camera looking directly down the negative z-axis.
 
 	//					  Position	  Yaw	 Pitch
 	Camera->PositionCamera(0, 0, 6,		0,		0);
